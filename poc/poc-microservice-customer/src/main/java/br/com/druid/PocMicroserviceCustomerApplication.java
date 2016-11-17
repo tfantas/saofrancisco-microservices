@@ -8,11 +8,13 @@ import javax.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import br.com.druid.domain.Customer;
 import br.com.druid.repository.CustomerRepository;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class PocMicroserviceCustomerApplication {
 
 	@Autowired 
