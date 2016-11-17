@@ -1,2 +1,3 @@
 poc/poc-config-server/.mvn/
 poc/poc-microservice-customer/.mvn/
+poc/poc-eureka-server/.mvn/
