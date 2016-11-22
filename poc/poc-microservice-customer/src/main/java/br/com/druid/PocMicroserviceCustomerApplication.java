@@ -28,9 +28,9 @@ public class PocMicroserviceCustomerApplication {
 	public void init() {
 
 		Set<Customer> set = new HashSet<>();
-		set.add(new Customer("TesteName1", "1234567890", 48));
-		set.add(new Customer("TesteName2", "1234567891", 37));
-		set.add(new Customer("TesteName3", "1234567892", 21));
+		set.add(new Customer("733999000001" , "TesteName1", "1234567890", 48));
+		set.add(new Customer("733999000002" , "TesteName2", "1234567891", 37));
+		set.add(new Customer("733999000003" , "TesteName3", "1234567892", 21));
 
 		customerRepository.save(set);
 	}

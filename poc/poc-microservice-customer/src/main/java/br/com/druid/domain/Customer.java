@@ -10,6 +10,7 @@ public class Customer {
 	@Id
 	@GeneratedValue
 	Long id;
+	String cardNumber;
 	String name;
 	String cpf;
 	Integer age;
@@ -17,8 +18,9 @@ public class Customer {
 	public Customer() {
 		super();
 	}	
-	public Customer(String name, String cpf, Integer age) {
+	public Customer(String cardNumber, String name, String cpf, Integer age) {
 		this();
+		this.cardNumber = cardNumber;
 		this.age = age;
 		this.name = name;
 		this.cpf = cpf;
@@ -47,6 +49,11 @@ public class Customer {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	
+	public String getCardNumber() {
+		return cardNumber;
+	}
+	public void setCardNumber(String cardNumber) {
+		this.cardNumber = cardNumber;
+	}
 
 }
