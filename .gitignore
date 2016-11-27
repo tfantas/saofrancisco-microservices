@@ -2,3 +2,4 @@ poc/poc-config-server/.mvn/
 poc/poc-microservice-customer/.mvn/
 poc/poc-eureka-server/.mvn/
 poc/poc-medical-scheduling-service/.mvn/
+poc/poc-health-care-web/.mvn/
