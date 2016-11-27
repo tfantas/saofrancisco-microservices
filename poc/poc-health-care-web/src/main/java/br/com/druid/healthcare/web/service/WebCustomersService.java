@@ -12,6 +12,8 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.HttpClientErrorException;
 import org.springframework.web.client.RestTemplate;
 
+import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
+
 import br.com.druid.healthcare.web.AccountNotFoundException;
 import br.com.druid.healthcare.web.domain.Customer;
 
@@ -49,14 +51,23 @@ public class WebCustomersService {
 		logger.warning("The RestTemplate request factory is "
 				+ restTemplate.getRequestFactory().getClass());
 	}
-
+	@HystrixCommand(fallbackMethod="customerError")
 	public Customer findByNumber(String customersNumber) {
 
 		logger.info("findByNumber() invoked: for " + customersNumber);
 		return restTemplate.getForObject(serviceUrl + "/customers/{number}",
 				Customer.class, customersNumber);
 	}
-
+	public Customer customerError(String customersNumber) {
+		Customer customer = new Customer();
+		customer.setId(0L);
+		customer.setName("ERROR");
+		customer.setCpf("ERROR");
+		customer.setCardNumber("ERROR");
+		customer.setAge(0);
+		return customer;
+	}
+	
 	public List<Customer> byOwnerContains(String name) {
 		logger.info("byOwnerContains() invoked:  for " + name);
 		Customer[] customers = null;
