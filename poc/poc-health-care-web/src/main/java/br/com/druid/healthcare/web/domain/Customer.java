@@ -2,6 +2,9 @@ package br.com.druid.healthcare.web.domain;
 
 import java.io.Serializable;
 
+import com.fasterxml.jackson.annotation.JsonRootName;
+
+@JsonRootName("customer")
 public class Customer implements Serializable {
 	
 	private static final long serialVersionUID = -8796773624363904684L;

@@ -8,10 +8,12 @@
 	<h1>Customer Details</h1>
 
 	<dl class="dl-horizontal">
-		<dt>Id</dt>
-		<dd th:text="${customer.id}">number</dd>
-	<!--	<dt>Name</dt>
-	  	<dd th:text="${customer.name}">number</dd> -->
+		<dt>Name</dt>
+	  	<dd th:text="${customer.name}">number</dd>
+		<dt>CPF</dt>
+	  	<dd th:text="${customer.cpf}">number</dd>
+		<dt>Card Number:</dt>
+	  	<dd th:text="${customer.cardNumber}">number</dd>
 		<dt>Age</dt>
 		<dd th:text="${customer.age}">number</dd>
 	</dl>

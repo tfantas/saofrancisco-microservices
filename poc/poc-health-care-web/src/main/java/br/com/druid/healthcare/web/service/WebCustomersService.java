@@ -68,14 +68,20 @@ public class WebCustomersService {
 		return customer;
 	}
 	
+	public List<Customer> byOwnerContainsError(String name) {
+		return null;
+	}
+	@HystrixCommand(fallbackMethod="byOwnerContainsError")
 	public List<Customer> byOwnerContains(String name) {
 		logger.info("byOwnerContains() invoked:  for " + name);
-		Customer[] customers = null;
-
+		Customer[] customers  = null;
+		Customer customer;
 		try {
-			customers = restTemplate.getForObject(serviceUrl
-					+ "/customers/search/findByName?name={name}", Customer[].class, name);
-		} catch (HttpClientErrorException e) { // 404
+			customer = restTemplate.getForObject(serviceUrl
+					+ "/customers/search/findByName?name={name}", Customer.class, name);
+			customers = new Customer[1];
+			customers[0] = customer;
+		} catch (Exception e) { // 404
 			e.printStackTrace();
 		}
 
@@ -84,7 +90,7 @@ public class WebCustomersService {
 		else
 			return Arrays.asList(customers);
 	}
-
+	@HystrixCommand(fallbackMethod="customerError")
 	public Customer getByNumber(String customerNumber) {
 		Customer customer = restTemplate.getForObject(serviceUrl
 				+ "/customers/{number}", Customer.class, customerNumber);
