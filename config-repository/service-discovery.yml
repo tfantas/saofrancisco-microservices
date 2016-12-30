@@ -1,0 +1,16 @@
+---
+spring:
+  profiles: dsv
+  application:
+    name: service-discovery   
+server:
+  port: 8089
+management:
+  contextPath: /eureka
+eureka:
+  datacenter: DSV
+  environment: DSV
+  instance:
+    hostname: localhost
+    preferIpAddress: false
+
