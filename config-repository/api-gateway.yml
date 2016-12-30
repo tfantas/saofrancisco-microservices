@@ -12,9 +12,9 @@ management:
 eureka:
   datacenter: DSV
   environment: DSV
-    instance:
-      hostname: localhost
-      preferIpAddress: false
-      client:
-        serviceUrl:
-          defaultZone: http://localhost:8089/eureka/
+  instance:
+    hostname: localhost
+    preferIpAddress: false
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8089/eureka/
