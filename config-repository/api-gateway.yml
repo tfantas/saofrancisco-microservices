@@ -1,0 +1,20 @@
+---
+spring:
+  profiles: dsv
+  application:
+	name: api-gateway   
+server:
+	port: 8090
+zuul:
+  prefix: /services
+management:
+	contextPath:/eureka
+eureka:
+	datacenter:DSV
+	environment:DSV
+	instance:
+		hostname:localhost
+		preferIpAddress:false
+	client:
+		serviceUrl:
+			defaultZone: http://localhost:8089/eureka/
