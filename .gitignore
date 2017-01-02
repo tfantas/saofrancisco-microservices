@@ -4,4 +4,21 @@ poc/poc-eureka-server/.mvn/
 poc/poc-medical-scheduling-service/.mvn/
 poc/poc-health-care-web/.mvn/
 poc/poc-turbine-server/.mvn/
-/api-gateway/
+
+# Eclipse
+.classpath
+.project
+.settings/
+.springBeans
+
+# Intellij
+.idea/
+*.iml
+*.iws
+
+# Mac
+.DS_Store
+
+# Maven
+log/
+target/
