@@ -20,5 +20,10 @@ public class ApiGatewayApplication {
     @Bean
     public Filter shallowEtagHeaderFilter() {
         return new ShallowEtagHeaderFilter();
-    }    
+    }
+    
+    @Bean
+    public SimpleFilter simpleFilter() {
+      return new SimpleFilter();
+    }
 }
