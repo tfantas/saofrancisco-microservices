@@ -11,8 +11,7 @@ management:
 eureka:
   datacenter: DSV
   environment: DSV
-  server:
-    awsBindingStrategy: route53
+  awsBindingStrategy: route53
   instance:
     preferIpAddress: false
   client:
