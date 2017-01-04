@@ -11,7 +11,6 @@ eureka:
   datacenter: DSV
   environment: DSV
   instance:
-    hostname: localhost
     preferIpAddress: false
   client:
     registerWithEureka: false
