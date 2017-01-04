@@ -15,7 +15,7 @@ import br.com.druid.domain.Customer;
 import br.com.druid.repository.CustomerRepository;
 
 @SpringBootApplication
-@EnableEurekaClient
+@EnableDiscoveryClient
 public class PocMicroserviceCustomerApplication {
 
 	@Autowired 
