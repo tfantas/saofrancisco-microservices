@@ -9,11 +9,7 @@ management:
   contextPath: /eureka
 
 eureka:
-  datacenter: DSV
-  environment: DSV
-  awsBindingStrategy: route53
-  server:
-    awsBindingStrategy: route53
+  datacenter: cloud
   instance:
     preferIpAddress: false
   client:
