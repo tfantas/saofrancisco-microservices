@@ -4,7 +4,7 @@ spring:
   application:
     name: service-discovery   
 server:
-  port: 8080
+  port: 8761
 management:
   contextPath: /eureka
 eureka:
