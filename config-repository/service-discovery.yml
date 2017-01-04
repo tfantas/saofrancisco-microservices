@@ -1,5 +1,27 @@
 ---
 spring:
+  profiles: default
+  application:
+    name: service-discovery   
+server:
+  port: 8761
+management:
+  contextPath: /eureka
+
+eureka:
+  datacenter: cloud
+  instance:
+    preferIpAddress: false
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    server:
+      waitTimeInMsWhenSyncEmpty: 0
+
+
+
+---
+spring:
   profiles: dsv
   application:
     name: service-discovery   
