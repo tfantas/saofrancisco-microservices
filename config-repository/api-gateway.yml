@@ -9,12 +9,7 @@ zuul:
   item:
     serviceId: customer
     path: /customer/**
-management:
-  contextPath: /eureka
 eureka:
-  instance:
-    statusPageUrlPath: /eureka/info
-    healthCheckUrlPath: /eureka/health
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
