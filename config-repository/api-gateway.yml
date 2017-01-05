@@ -10,6 +10,9 @@ zuul:
 management:
   contextPath: /eureka
 eureka:
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
   datacenter: cloud
   client:
     serviceUrl:
