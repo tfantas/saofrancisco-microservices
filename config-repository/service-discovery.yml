@@ -11,6 +11,7 @@ eureka:
   client:
     registerWithEureka: true
     fetchRegistry: true
+    region: us-west-2
     serviceUrl:
       defaultZone: http://35.166.252.70:8761/eureka/
 
@@ -29,6 +30,7 @@ eureka:
   client:
     registerWithEureka: true
     fetchRegistry: true
+    region: us-west-2
     serviceUrl:
       defaultZone: http://35.166.252.70:8761/eureka/
 
