@@ -17,4 +17,4 @@ eureka:
     preferIpAddress: false
   client:
     serviceUrl:
-      defaultZone: http://ip-172-31-8-231.us-west-2.compute.internal:8081/eureka/
+      defaultZone: http://35.166.252.70:8761/eureka/
