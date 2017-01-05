@@ -1,5 +1,24 @@
 ---
 spring:
+  profiles: default
+  application:
+    name: api-gateway   
+server:
+  port: 90
+zuul:
+  prefix: /services
+management:
+  contextPath: /eureka
+eureka:
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+
+---
+spring:
   profiles: dsv
   application:
     name: api-gateway   
