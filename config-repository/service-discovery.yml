@@ -5,8 +5,6 @@ spring:
     name: service-discovery   
 server:
   port: 8761
-management:
-  contextPath: /eureka
 eureka:
   datacenter: cloud
   client:
@@ -24,8 +22,6 @@ spring:
     name: service-discovery   
 server:
   port: 8761
-management:
-  contextPath: /eureka
 eureka:
   datacenter: cloud
   client:
