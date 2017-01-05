@@ -8,7 +8,6 @@ server:
 eureka:
   region: us-west-2
   datacenter: cloud
-  region: us-west-2
   client:
     registerWithEureka: true
     fetchRegistry: true
