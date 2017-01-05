@@ -14,7 +14,7 @@ public class AwsDockerConfig {
 	
 	@Value("${server.port:8761}") 
 	private int port;
-	
+
 	@Bean
 	@Profile("!default")
 	public EurekaInstanceConfigBean eurekaInstanceConfig(InetUtils inetUtils) {
@@ -24,7 +24,8 @@ public class AwsDockerConfig {
 	    info.getMetadata().put(AmazonInfo.MetaDataKey.publicHostname.getName(), info.get(AmazonInfo.MetaDataKey.publicIpv4));
 	    config.setHostname(info.get(AmazonInfo.MetaDataKey.publicHostname));
 	    config.setIpAddress(info.get(AmazonInfo.MetaDataKey.publicIpv4));
-	    config.setNonSecurePort(port);	    
+	    config.setNonSecurePort(port);	
+	    
 	    return config;
 	}
 

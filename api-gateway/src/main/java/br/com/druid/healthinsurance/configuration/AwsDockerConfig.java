@@ -12,7 +12,7 @@ import com.netflix.appinfo.AmazonInfo;
 @Configuration
 public class AwsDockerConfig {
 	
-	@Value("${server.port:8761}") 
+	@Value("${server.port:80}") 
 	private int port;
 	
 	@Bean
