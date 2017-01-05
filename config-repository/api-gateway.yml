@@ -10,11 +10,7 @@ zuul:
 management:
   contextPath: /eureka
 eureka:
-  datacenter: DSV
-  environment: DSV
-  instance:
-    hostname: localhost
-    preferIpAddress: false
+  datacenter: cloud
   client:
     serviceUrl:
       defaultZone: http://35.166.252.70:8761/eureka/
