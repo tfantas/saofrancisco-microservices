@@ -7,20 +7,14 @@ server:
   port: 8761
 management:
   contextPath: /eureka
-
-eureka:
-  datacenter: cloud
-  client:
-    registerWithEureka: false
-    fetchRegistry: false
-    server:
-      waitTimeInMsWhenSyncEmpty: 0
 eureka:
   instance:
     statusPageUrlPath: /eureka/info
     healthCheckUrlPath: /eureka/health
   datacenter: cloud
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://35.166.252.70:8761/eureka/
 
@@ -41,6 +35,8 @@ eureka:
     healthCheckUrlPath: /eureka/health
   datacenter: cloud
   client:
+    registerWithEureka: true
+    fetchRegistry: true
     serviceUrl:
       defaultZone: http://35.166.252.70:8761/eureka/
 
