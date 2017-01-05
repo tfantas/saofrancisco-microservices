@@ -12,7 +12,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
-
+logging:
+  level:
+    ROOT: DEBUG
 ---
 spring:
   profiles: dsv
@@ -32,3 +34,5 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://35.166.252.70:8761/eureka/
+
+
