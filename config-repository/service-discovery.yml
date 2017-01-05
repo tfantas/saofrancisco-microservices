@@ -6,14 +6,13 @@ spring:
 server:
   port: 8761
 eureka:
-  region: us-west-2
   datacenter: cloud
   client:
     registerWithEureka: true
     fetchRegistry: true
     region: us-west-2
     serviceUrl:
-      defaultZone: http://35.166.252.70:8761/eureka/
+      defaultZone: http://ec2-35-166-252-70.us-west-2.compute.amazonaws.com:8761/eureka/
 
 
 
@@ -25,12 +24,11 @@ spring:
 server:
   port: 8761
 eureka:
-  region: us-west-2
   datacenter: cloud
   client:
     registerWithEureka: true
     fetchRegistry: true
     region: us-west-2
     serviceUrl:
-      defaultZone: http://35.166.252.70:8761/eureka/
+      defaultZone: http://ec2-35-166-252-70.us-west-2.compute.amazonaws.com:8761/eureka/
 
