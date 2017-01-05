@@ -6,6 +6,7 @@ spring:
 server:
   port: 8761
 eureka:
+  region: us-west-2
   datacenter: cloud
   region: us-west-2
   client:
@@ -24,8 +25,8 @@ spring:
 server:
   port: 8761
 eureka:
-  datacenter: cloud
   region: us-west-2
+  datacenter: cloud
   client:
     registerWithEureka: true
     fetchRegistry: true
