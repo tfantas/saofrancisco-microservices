@@ -6,7 +6,9 @@ spring:
 server:
   port: 9090
 zuul:
-  prefix: /services
+  item:
+    serviceId: customer
+    path: /customer/**
 management:
   contextPath: /eureka
 eureka:
