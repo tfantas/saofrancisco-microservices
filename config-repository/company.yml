@@ -2,6 +2,14 @@
 spring:
   application:
     name: company
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: master
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+ 
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
 server:
   port: 8084
 eureka:
@@ -14,3 +22,5 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
+
+
