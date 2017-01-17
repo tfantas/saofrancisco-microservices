@@ -10,6 +10,10 @@ spring:
  
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
 server:
   port: 8084
 eureka:
