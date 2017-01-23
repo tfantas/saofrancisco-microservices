@@ -18,6 +18,14 @@ eureka:
 logging:
   level:
     ROOT: DEBUG
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 15000
+
 ---
 spring:
   profiles: dsv
