@@ -4,7 +4,7 @@ spring:
     name: access-control
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: master
+    username: access-control
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
@@ -34,7 +34,7 @@ spring:
     name: access-control
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: master
+    username: access-control
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
