@@ -31,7 +31,7 @@ management:
 spring:
   profiles: dsv
   application:
-    name: company
+    name: access-control
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
     username: master
