@@ -1,6 +1,5 @@
 ---
 spring:
-  profiles: default
   application:
     name: service-discovery   
 server:
