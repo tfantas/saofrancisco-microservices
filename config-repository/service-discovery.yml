@@ -9,9 +9,6 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
 
-
-
-
 ---
 spring:
   profiles: dsv
