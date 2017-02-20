@@ -1,6 +1,5 @@
 ---
 spring:
-  profiles: default
   application:
     name: service-discovery   
 server:
@@ -9,9 +8,6 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
-
-
-
 
 ---
 spring:
