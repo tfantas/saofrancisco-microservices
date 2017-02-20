@@ -15,6 +15,7 @@ spring:
         format_sql: true
 server:
   port: 8085
+  address: http://localhost:8085
 eureka:
   client:
     serviceUrl:
@@ -31,7 +32,7 @@ management:
 spring:
   profiles: dsv
   application:
-    name: company
+    name: access-control
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
     username: master
@@ -45,6 +46,7 @@ spring:
         format_sql: true
 server:
   port: 8085
+  address: http://sf-api-gateway-load-balancer-1036299505.us-west-2.elb.amazonaws.com/services/access-control
 eureka:
   client:
     serviceUrl:
