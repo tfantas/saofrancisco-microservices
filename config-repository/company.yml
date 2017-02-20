@@ -13,10 +13,10 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-    javax:
-      persistence:
-        validation:
-          mode: none
+      javax:
+        persistence:
+          validation:
+            mode: none
 server:
   port: 8084
 eureka:
@@ -47,10 +47,10 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-    javax:
-      persistence:
-        validation:
-          mode: none
+      javax:
+        persistence:
+          validation:
+            mode: none
 server:
   port: 8084
 eureka:
