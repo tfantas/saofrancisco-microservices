@@ -4,7 +4,7 @@ spring:
     name: access-control
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: ACCESS_CONTROL
+    username: master
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
@@ -15,7 +15,7 @@ spring:
         format_sql: true
 server:
   port: 8085
-  address: http://localhost:8085
+  address: http://localhost
 eureka:
   client:
     serviceUrl:
@@ -35,7 +35,7 @@ spring:
     name: access-control
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: ACCESS_CONTROL
+    username: master
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
