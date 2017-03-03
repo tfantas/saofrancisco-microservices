@@ -30,9 +30,7 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
-logging:
-  level:
-    ROOT: TRACE
+
 
 ---
 spring:
