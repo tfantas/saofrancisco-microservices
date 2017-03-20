@@ -1,14 +1,10 @@
-<<<<<<< HEAD
-server:
-  context-path: /auth
-=======
 ---
 spring:
   application:
-    name: oauth-server
+    name: beneficiary
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: ACCESS_CONTROL
+    username: BENEFICIARIO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
@@ -18,8 +14,7 @@ spring:
         show_sql: true
         format_sql: true
 server:
-  port: 9091
->>>>>>> 8bd7b773884dd7ab6921e011ab3d3e3cdb4f1a5a
+  port: 8095
 eureka:
   client:
     serviceUrl:
@@ -30,20 +25,16 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
-<<<<<<< HEAD
-security:
-  sessions: never
-=======
 
 
 ---
 spring:
   profiles: dsv
   application:
-    name: oauth-server
+    name: beneficiary
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: ACCESS_CONTROL
+    username: BENEFICIARIO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
   jpa:
@@ -53,7 +44,7 @@ spring:
         show_sql: true
         format_sql: true
 server:
-  port: 9091
+  port: 8095
 eureka:
   client:
     serviceUrl:
@@ -65,5 +56,4 @@ eureka:
 management:
   contextPath: /eureka
 
->>>>>>> 8bd7b773884dd7ab6921e011ab3d3e3cdb4f1a5a
 
