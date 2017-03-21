@@ -6,6 +6,12 @@ server:
   port: 9090
 zuul:
   prefix: /services
+  routes:
+    uaa-service:
+      sensitiveHeaders:
+      path: /oauth-server/oauth/**
+      stripPrefix: false
+  add-proxy-headers: true
 management:
   contextPath: /eureka
 eureka:
