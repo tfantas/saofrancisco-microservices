@@ -26,8 +26,7 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
-security:
-  sessions: never
+
 
 
 ---
