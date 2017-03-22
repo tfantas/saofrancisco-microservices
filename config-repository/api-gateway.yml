@@ -32,10 +32,8 @@ hystrix:
   command:
     default:
       execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 15000
-
+        timeout:
+          enabled: false
 
 ---
 spring:
