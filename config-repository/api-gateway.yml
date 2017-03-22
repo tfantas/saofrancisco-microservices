@@ -5,10 +5,11 @@ spring:
 server:
   port: 9090
 zuul:
+  sensitiveHeaders:
   prefix: /services
   routes:
     oauth-server:
-      sensitiveHeaders: Cookie,Set-Cookie,Authorization
+      sensitiveHeaders:
       path: /oauth/**
       stripPrefix: false
   add-proxy-headers: true
