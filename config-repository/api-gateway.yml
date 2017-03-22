@@ -7,9 +7,6 @@ server:
 zuul:
   sensitiveHeaders:
   prefix: /services
-  host:
-    connect-timeout-millis: 15000
-    socket-timeout-millis: 15000
   routes:
     oauth-server:
       sensitiveHeaders:
