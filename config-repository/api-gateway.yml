@@ -7,9 +7,9 @@ server:
 zuul:
   prefix: /services
   routes:
-    uaa-service:
-      sensitiveHeaders:
-      path: /oauth-server/oauth/**
+    oauth-server:
+      sensitiveHeaders: Cookie,Set-Cookie
+      path: /oauth/**
       stripPrefix: false
   add-proxy-headers: true
 management:
