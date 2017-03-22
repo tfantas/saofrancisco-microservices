@@ -7,6 +7,11 @@ spring:
     username: ENDERECO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
+    tomcat:
+      maxActive: 5	
+      maxIdle: 2
+      minIdle: 1
+      initialSize: 1	
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -37,6 +42,11 @@ spring:
     username: ENDERECO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
+    tomcat:
+      maxActive: 5	
+      maxIdle: 2
+      minIdle: 1
+      initialSize: 1	
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:

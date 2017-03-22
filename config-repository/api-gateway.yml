@@ -28,14 +28,7 @@ logging:
 ribbon:
   ConnectTimeout: 30000
   ReadTimeout: 30000
-hystrix:
-  command:
-    default:
-      execution:
-        isolation:
-          strategy: THREAD
-          thread:
-            timeoutInMilliseconds: 30000
+
 ---
 spring:
   profiles: dsv
