@@ -34,7 +34,7 @@ security:
   oauth2:
     client:
       accessTokenUri: http://oauth-server/oauth/token
-      userAuthorizationUri: /oauth/authorize
+      userAuthorizationUri: /services/oauth-server/oauth/token
       clientId: acme
       clientSecret: acmesecret
     resource:
