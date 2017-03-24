@@ -38,6 +38,12 @@ security:
     client:
       accessTokenUri: http://oauth-server/oauth/token
       userAuthorizationUri: /services/oauth-server/oauth/token
+  resource:
+      jwt:
+        keyValue: |
+          -----BEGIN PUBLIC KEY-----
+          MIIBIjANBgkqhkiG9w0BAQEFAAOCAQ8AMIIBCgKCAQEAzdgQmK0RdD2jkjYGXvQVZ+QesF+MVi1AeLewRPTzK8et2Vbwk7wGnMfeG22Ka9vFjyy935P1VxrcNfyH6oy3DlL3mUQEMPoPYJVYpnNNRit+FT6bJaX6Ws+phYhbxy8dtGsBHF3H348T8FZ9wOloohilBvCiupVYIieTLRMRK3Z0xtzqkwPh+G12WPC6gp21090PHMbKRegXx5LsVKAFsyXitUyVvZUo/axUs9gjX7uKF+tDIaTl/8tbvCOMNrHvNXJ+yypIdMaSd0FivdrazxH05hL9jvxviqlOWlvKfzNDd3Mr9lylPXLA82Vl87PV3ZZ/rOzukqZPSEk1EnIQYwIDAQAB
+          -----END PUBLIC KEY-----
 hystrix:
   command:
     default:
@@ -45,7 +51,6 @@ hystrix:
         isolation:
           thread:
             timeoutInMilliseconds: 30000  
-
 
 ---
 spring:
