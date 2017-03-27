@@ -18,6 +18,14 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  cloud:
+    stream:
+      bindings:
+        worksChannel:
+          binder: rabbit
+          destination: work.exchange
+          contentType: application/json
+          group: companyGroup
 server:
   port: 8088
 eureka:
