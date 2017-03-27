@@ -40,7 +40,7 @@ management:
   contextPath: /eureka
 logging:
   level:
-    ROOT: DEBUG
+    org.springframework.cloud.stream: DEBUG
 
 
 ---
