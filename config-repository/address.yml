@@ -21,7 +21,7 @@ spring:
   cloud:
     stream:
       bindings:
-        worksChannel:
+        worksAudit:
           binder: rabbit
           destination: audit.address
           contentType: application/json
