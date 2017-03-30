@@ -18,6 +18,13 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  cloud:
+    stream:
+      bindings:
+        worksChannel:
+          binder: rabbit
+          destination: audit.address
+          contentType: application/json
 server:
   port: 8087
 eureka:
