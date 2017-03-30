@@ -23,7 +23,7 @@ spring:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: audit.address
+          destination: address.audit
           contentType: application/json
 server:
   port: 8087

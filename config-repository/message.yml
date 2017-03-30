@@ -23,6 +23,13 @@ spring:
         persistence:
           validation:
             mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: message.audit
+          contentType: application/json
 server:
   port: 8090
 eureka:
