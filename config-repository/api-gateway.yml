@@ -65,6 +65,9 @@ eureka:
   client:
     serviceUrl:
       defaultZone: http://35.166.252.70:8761/eureka/
+logging:
+  level:
+    ROOT: DEBUG
 ribbon:
   ConnectTimeout: 30000
   ReadTimeout: 30000
