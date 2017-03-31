@@ -60,7 +60,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
-		http.csrf().disable().authorizeRequests().antMatchers("/services/oauth-server/**").permitAll().anyRequest().authenticated();
+		http.csrf().disable().authorizeRequests().antMatchers("/services/oauth-server/**", "/eureka/**").permitAll().anyRequest().authenticated();
 
 		// @formatter:on
 	}
