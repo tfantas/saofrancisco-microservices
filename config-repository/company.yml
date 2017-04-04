@@ -12,6 +12,8 @@ spring:
       maxIdle: 2
       minIdle: 1
       initialSize: 1	
+  rabbitmq:
+    host: localhost		
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -22,6 +24,13 @@ spring:
         persistence:
           validation:
             mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: company.audit
+          contentType: application/json
 server:
   port: 8084
 eureka:
@@ -50,7 +59,9 @@ spring:
       maxActive: 5	
       maxIdle: 2
       minIdle: 1
-      initialSize: 1	
+      initialSize: 1
+  rabbitmq:
+    host: 129.150.65.116
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -61,6 +72,13 @@ spring:
         persistence:
           validation:
             mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: company.audit
+          contentType: application/json
 server:
   port: 8084
 eureka:
