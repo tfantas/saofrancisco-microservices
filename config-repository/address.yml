@@ -13,7 +13,7 @@ spring:
       minIdle: 1
       initialSize: 1	
   rabbitmq:
-    host: 129.150.65.116
+    host: localhost
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -64,6 +64,13 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: address.audit
+          contentType: application/json
 server:
   port: 8087
 eureka:
