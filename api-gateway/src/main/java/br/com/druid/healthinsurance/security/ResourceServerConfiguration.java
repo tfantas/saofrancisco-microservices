@@ -63,8 +63,6 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 		// @formatter:off
 		http
 			.csrf().disable().authorizeRequests()
-				.antMatchers("/services/oauth-server/**", "/eureka/**", "/services/access-control/user/regenerateConfirmation/**", "/services/access-control/user/registrationConfirm/**").permitAll().anyRequest().authenticated()
-
                 .antMatchers(HttpMethod.GET, "/services/access-control/**").hasAuthority("ACCESS_CONTROL_READ")
                 .antMatchers(HttpMethod.POST, "/services/access-control/**").hasAuthority("ACCESS_CONTROL_WRITE")
                 .antMatchers(HttpMethod.PUT, "/services/access-control/**").hasAuthority("ACCESS_CONTROL_WRITE")
@@ -107,11 +105,15 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
                 .antMatchers(HttpMethod.PATCH, "/services/billing/**").hasAuthority("BILLING_WRITE")
                 .antMatchers(HttpMethod.DELETE, "/services/billing/**").hasAuthority("BILLING_WRITE")
 
-                .antMatchers(HttpMethod.GET, "/services/price/**").hasAuthority("PRICE_READ")
-                .antMatchers(HttpMethod.POST, "/services/price/**").hasAuthority("PRICE_WRITE")
-                .antMatchers(HttpMethod.PUT, "/services/price/**").hasAuthority("PRICE_WRITE")
-                .antMatchers(HttpMethod.PATCH, "/services/price/**").hasAuthority("PRICE_WRITE")
-                .antMatchers(HttpMethod.DELETE, "/services/price/**").hasAuthority("PRICE_WRITE");
+                .antMatchers(HttpMethod.GET, "/services/sib/**").hasAuthority("SIB_READ")
+                .antMatchers(HttpMethod.POST, "/services/sib/**").hasAuthority("SIB_WRITE")
+                .antMatchers(HttpMethod.PUT, "/services/sib/**").hasAuthority("SIB_WRITE")
+                .antMatchers(HttpMethod.PATCH, "/services/sib/**").hasAuthority("SIB_WRITE")
+                .antMatchers(HttpMethod.DELETE, "/services/sib/**").hasAuthority("SIB_WRITE")
+
+				.antMatchers("/services/oauth-server/**", "/eureka/**", "/services/access-control/user/regenerateConfirmation/**", "/services/access-control/user/registrationConfirm/**").permitAll()
+
+                .anyRequest().authenticated();
 		// @formatter:on
 	}
 }
