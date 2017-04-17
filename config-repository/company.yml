@@ -43,6 +43,9 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+
 
 
 ---
