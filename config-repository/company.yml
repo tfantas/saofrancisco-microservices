@@ -96,5 +96,10 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+feign:
+  hystrix:
+    enabled: true
 
 
