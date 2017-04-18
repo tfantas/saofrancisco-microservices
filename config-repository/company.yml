@@ -45,6 +45,12 @@ management:
   contextPath: /eureka
 hystrix:
   shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
 feign:
   hystrix:
     enabled: true
@@ -98,6 +104,12 @@ management:
   contextPath: /eureka
 hystrix:
   shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
 feign:
   hystrix:
     enabled: true
