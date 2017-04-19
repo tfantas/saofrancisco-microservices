@@ -31,6 +31,10 @@ spring:
           binder: rabbit
           destination: company.audit
           contentType: application/json
+        worksCompanyAudit:
+          binder: rabbit
+          destination: company.audit
+          contentType: application/json
           group: companyService
 server:
   port: 8084
