@@ -8,13 +8,12 @@ spring:
     username: MENSAGEM
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    tomcat:
-      maxActive: 5	
-      maxIdle: 2
-      minIdle: 1
-      initialSize: 1
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
   rabbitmq:
-    host: localhost	
+    host: 129.150.65.116	
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -56,11 +55,10 @@ spring:
     username: MENSAGEM
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    tomcat:
-      maxActive: 5	
-      maxIdle: 2
-      minIdle: 1
-      initialSize: 1	
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
