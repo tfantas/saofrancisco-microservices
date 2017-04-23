@@ -63,6 +63,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 		// @formatter:off
         http
             .csrf().disable().authorizeRequests()
+            .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .antMatchers("/services/oauth-server/**", "/eureka/**", "/services/access-control/user/regenerateConfirmation/**", "/services/access-control/user/registrationConfirm/**").permitAll()
 
             .antMatchers(HttpMethod.GET, "/services/access-control/**").hasAnyAuthority("ACCESS_CONTROL_READ", "ACCESS_CONTROL_WRITE")
@@ -118,7 +119,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
             .antMatchers(HttpMethod.PUT, "/services/sib/**").hasAuthority("SIB_WRITE")
             .antMatchers(HttpMethod.PATCH, "/services/sib/**").hasAuthority("SIB_WRITE")
             .antMatchers(HttpMethod.DELETE, "/services/sib/**").hasAuthority("SIB_WRITE")
-
+            
             .anyRequest().authenticated();
 		// @formatter:on
 	}
