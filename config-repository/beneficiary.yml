@@ -27,6 +27,12 @@ spring:
           binder: rabbit
           destination: beneficiary.audit
           contentType: application/json
+        worksBeneficiaryAudit:
+          binder: rabbit
+          destination: beneficiary.audit
+          contentType: application/json
+          group: beneficiaryService
+
 server:
   port: 8095
 eureka:
@@ -71,6 +77,11 @@ spring:
           binder: rabbit
           destination: beneficiary.audit
           contentType: application/json
+        worksBeneficiaryAudit:
+          binder: rabbit
+          destination: beneficiary.audit
+          contentType: application/json
+          group: beneficiaryService
 server:
   port: 8095
 eureka:
