@@ -80,7 +80,7 @@ spring:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: contract.audit
+          destination: accessControl.audit
           contentType: application/json
 server:
   port: 8085
