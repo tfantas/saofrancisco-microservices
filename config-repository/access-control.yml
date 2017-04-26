@@ -8,9 +8,9 @@ spring:
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
-          connection-test-query: SELECT 1 FROM DUAL
-          minimum-idle: 1
-          maximum-pool-size: 5
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
   rabbitmq:
     host: 129.150.65.116
   jpa:
@@ -52,6 +52,7 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
+
 
 ---
 spring:
@@ -105,5 +106,4 @@ hystrix:
 feign:
   hystrix:
     enabled: true
-
 
