@@ -19,6 +19,10 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
   cloud:
     stream:
       bindings:
@@ -75,6 +79,10 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
   cloud:
     stream:
       bindings:
