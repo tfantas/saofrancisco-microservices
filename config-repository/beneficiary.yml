@@ -20,6 +20,10 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
   cloud:
     stream:
       bindings:
@@ -27,6 +31,12 @@ spring:
           binder: rabbit
           destination: beneficiary.audit
           contentType: application/json
+        worksBeneficiaryAudit:
+          binder: rabbit
+          destination: beneficiary.audit
+          contentType: application/json
+          group: beneficiaryService
+
 server:
   port: 8095
 eureka:
@@ -39,7 +49,20 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
-
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
 
 ---
 spring:
@@ -64,6 +87,10 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
   cloud:
     stream:
       bindings:
@@ -71,6 +98,11 @@ spring:
           binder: rabbit
           destination: beneficiary.audit
           contentType: application/json
+        worksBeneficiaryAudit:
+          binder: rabbit
+          destination: beneficiary.audit
+          contentType: application/json
+          group: beneficiaryService
 server:
   port: 8095
 eureka:
@@ -83,5 +115,18 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
-
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
 

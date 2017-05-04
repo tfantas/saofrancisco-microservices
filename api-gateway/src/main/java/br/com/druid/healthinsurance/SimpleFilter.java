@@ -10,7 +10,9 @@ import com.netflix.zuul.context.RequestContext;
 
 public class SimpleFilter extends ZuulFilter {
 
-	  private static Logger log = LoggerFactory.getLogger(SimpleFilter.class);
+	  
+	private static final Logger log = LoggerFactory.getLogger(SimpleFilter.class);
+
 
 	  @Override
 	  public String filterType() {

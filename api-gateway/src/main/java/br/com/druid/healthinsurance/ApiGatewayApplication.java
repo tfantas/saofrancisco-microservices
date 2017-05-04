@@ -5,9 +5,7 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.util.stream.Collectors;
 import java.util.stream.Stream;
-
-import javax.servlet.Filter;
-
+import javax.servlet.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.oauth2.resource.UserInfoRestTemplateCustomizer;
@@ -64,7 +62,7 @@ public class ApiGatewayApplication {
 		return new ZuulFallbackProvider() {
 			@Override
 			public String getRoute() {
-				return "customer";
+				return "company";
 			}
 
 			@Override
@@ -77,7 +75,7 @@ public class ApiGatewayApplication {
 
 					@Override
 					public int getRawStatusCode() throws IOException {
-						return 200;
+						return 500;
 					}
 
 					@Override

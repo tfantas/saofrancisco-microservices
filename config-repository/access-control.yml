@@ -2,22 +2,40 @@
 spring:
   application:
     name: access-control
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: devopts@druid.com.br
+    password: Q1w2e3r4!
+    protocol: smtps
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: ACCESS_CONTROL
+    username: CONTROLE_ACESSO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    tomcat:
-      maxActive: 5	
-      maxIdle: 2
-      minIdle: 1
-      initialSize: 1	
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  rabbitmq:
+    host: 129.150.65.116
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: accessControl.audit
+          contentType: application/json
 server:
   port: 8085
 eureka:
@@ -30,32 +48,65 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
-
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
+token:
+  expiration:
+    days: 1
 
 ---
 spring:
   profiles: dsv
   application:
     name: access-control
+  mail:
+      host: smtp.gmail.com
+      port: 465
+      username: devopts@druid.com.br
+      password: Q1w2e3r4!
+      protocol: smtps
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: ACCESS_CONTROL
+    username: CONTROLE_ACESSO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    tomcat:
-      maxActive: 5	
-      maxIdle: 2
-      minIdle: 1
-      initialSize: 1	
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  rabbitmq:
+    host: 129.150.65.116
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         show_sql: true
         format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: accessControl.audit
+          contentType: application/json
 server:
   port: 8085
-
 eureka:
   client:
     serviceUrl:
@@ -66,5 +117,18 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
-
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+token:
+  expiration:
+    days: 1
 

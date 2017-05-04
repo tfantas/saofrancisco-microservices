@@ -1,7 +1,5 @@
 package br.com.druid.healthinsurance.security;
 
-import java.io.IOException;
-
 import org.apache.commons.io.IOUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
@@ -18,6 +16,8 @@ import org.springframework.security.oauth2.provider.token.DefaultTokenServices;
 import org.springframework.security.oauth2.provider.token.TokenStore;
 import org.springframework.security.oauth2.provider.token.store.JwtAccessTokenConverter;
 import org.springframework.security.oauth2.provider.token.store.JwtTokenStore;
+
+import java.io.IOException;
 
 @Configuration
 @EnableResourceServer
@@ -65,6 +65,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
             .csrf().disable().authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
             .antMatchers("/services/oauth-server/**", "/eureka/**", "/services/access-control/user/regenerateConfirmation/**", "/services/access-control/user/registrationConfirm/**").permitAll()
+
+                .antMatchers(HttpMethod.GET, "/services/access-control/functionality/names/**").authenticated()
 
             .antMatchers(HttpMethod.GET, "/services/access-control/**").hasAnyAuthority("ACCESS_CONTROL_READ", "ACCESS_CONTROL_WRITE")
             .antMatchers(HttpMethod.POST, "/services/access-control/**").hasAuthority("ACCESS_CONTROL_WRITE")
