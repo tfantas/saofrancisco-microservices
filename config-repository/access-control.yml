@@ -65,7 +65,12 @@ logging:
 token:
   expiration:
     days: 1
-
+access-control:
+  app:
+    url: http://localhost/public/dist/#!/
+  token:
+    expiration:
+      days: 1
 ---
 spring:
   profiles: dsv
@@ -128,7 +133,9 @@ hystrix:
 feign:
   hystrix:
     enabled: true
-token:
-  expiration:
-    days: 1
-
+access-control:
+  app:
+    url: http://localhost/public/dist/#!/
+  token:
+    expiration:
+      days: 1
