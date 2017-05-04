@@ -62,13 +62,21 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
-
+token:
+  expiration:
+    days: 1
 
 ---
 spring:
   profiles: dsv
   application:
     name: access-control
+  mail:
+      host: smtp.gmail.com
+      port: 465
+      username: devopts@druid.com.br
+      password: Q1w2e3r4!
+      protocol: smtps
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
     username: CONTROLE_ACESSO
@@ -120,4 +128,7 @@ hystrix:
 feign:
   hystrix:
     enabled: true
+token:
+  expiration:
+    days: 1
 
