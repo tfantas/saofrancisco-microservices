@@ -2,10 +2,16 @@ package br.com.druid.healthinsurance;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 
 public class SimpleFilter extends ZuulFilter {
+
+	  
+	private static final Logger log = LoggerFactory.getLogger(SimpleFilter.class);
 
 
 	  @Override
@@ -28,7 +34,7 @@ public class SimpleFilter extends ZuulFilter {
 	    RequestContext ctx = RequestContext.getCurrentContext();
 	    HttpServletRequest request = ctx.getRequest();
 
-	    //log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
+	    log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
 
 	    return null;
 	  }
