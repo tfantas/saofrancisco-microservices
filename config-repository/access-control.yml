@@ -64,7 +64,7 @@ logging:
     org.springframework.cloud.stream: DEBUG
 access-control:
   app:
-    url: http://localhost/public/dist/#!/
+    url: http://localhost/public/dist/#!
   token:
     expiration:
       days: 7
@@ -132,7 +132,7 @@ feign:
     enabled: true
 access-control:
   app:
-    url: http://localhost/public/dist/#!/
+    url: http://localhost/public/dist/#!
   token:
     expiration:
       days: 7
