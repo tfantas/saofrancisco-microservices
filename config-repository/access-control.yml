@@ -62,15 +62,12 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
-token:
-  expiration:
-    days: 1
 access-control:
   app:
     url: http://localhost/public/dist/#!/
   token:
     expiration:
-      days: 1
+      days: 7
 ---
 spring:
   profiles: dsv
@@ -138,4 +135,4 @@ access-control:
     url: http://localhost/public/dist/#!/
   token:
     expiration:
-      days: 1
+      days: 7
