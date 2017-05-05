@@ -55,6 +55,7 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
+    org.eclipse.jetty.LEVEL: TRACE
 
 
 ---
