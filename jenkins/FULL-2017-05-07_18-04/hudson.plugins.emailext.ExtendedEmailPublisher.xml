@@ -1,0 +1,111 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson.plugins.emailext.ExtendedEmailPublisherDescriptor plugin="email-ext@2.57">
+  <defaultSuffix>@druid.com.br</defaultSuffix>
+  <smtpAuthUsername>devopts@druid.com.br</smtpAuthUsername>
+  <smtpAuthPassword>{AQAAABAAAAAQwDjSY/e5/2V0pO1igQSeVdpPVlUVjyKRgNDCnyg15tU=}</smtpAuthPassword>
+  <smtpHost>smtp.gmail.com</smtpHost>
+  <useSsl>true</useSsl>
+  <smtpPort>465</smtpPort>
+  <charset>UTF-8</charset>
+  <defaultContentType>text/html</defaultContentType>
+  <defaultSubject>$PROJECT_NAME - Build # $BUILD_NUMBER - $BUILD_STATUS!</defaultSubject>
+  <defaultBody>&lt;html&gt;&#xd;
+&#xd;
+	&lt;head&gt;&#xd;
+&#xd;
+		&lt;title&gt;Druid&lt;/title&gt;&#xd;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;&#xd;
+&#xd;
+	&lt;/head&gt;&#xd;
+	&lt;body&gt;&#xd;
+&#xd;
+		&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;580&quot; style=&quot;border: 20px solid #FFF; background: #FFF;&quot;&gt;&#xd;
+			&lt;tr&gt;&#xd;
+				&lt;td&gt;&#xd;
+&#xd;
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 50px solid #222; background: #222; font-family: Arial; font-size: 11pt;&quot;&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;text-align: center;&quot;&gt;&#xd;
+								&lt;img src=&quot;http://www.druid.com.br/logo-druid-novo.jpg&quot; alt=&quot;Druid&quot; title=&quot;Druid&quot; /&gt;&#xd;
+							&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+					&lt;/table&gt;&#xd;
+&#xd;
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 30px solid #eee; background: #eee; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;&quot;&gt;&#xd;
+								O projeto &lt;strong&gt;São Francisco&lt;/strong&gt; passou por um processo automático de deploy de uma nova versão.&#xd;
+							&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+					&lt;/table&gt;&#xd;
+&#xd;
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 30px solid #eee; background: #eee; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Aplicação&lt;/td&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;São Francisco&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Ambiente&lt;/td&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;Desenvolvimento&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Ação&lt;/td&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;Build&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Executor&lt;/td&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_USER&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;E­mail executor&lt;/td&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_USER_EMAIL&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Número Build&lt;/td&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_NUMBER&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Nó executor&lt;/td&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$NODE_NAME&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Número executor&lt;/td&gt;&#xd;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$EXECUTOR_NUMBER&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Status&lt;/td&gt;&#xd;
+							&lt;td style=&quot;padding: 20px 0 20px 0;&quot;&gt;$BUILD_STATUS&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+					&lt;/table&gt;&#xd;
+&#xd;
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 50px solid #e1e1e1; background: #e1e1e1; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;&#xd;
+						&lt;tr&gt;&#xd;
+							&lt;td style=&quot;text-align: center; color: #bbb;&quot;&gt;&#xd;
+								&amp;copy; Druid | Todos os direitos reservados.&#xd;
+							&lt;/td&gt;&#xd;
+						&lt;/tr&gt;&#xd;
+					&lt;/table&gt;&#xd;
+&#xd;
+				&lt;/td&gt;&#xd;
+			&lt;/tr&gt;&#xd;
+		&lt;/table&gt;&#xd;
+&#xd;
+	&lt;/body&gt;&#xd;
+&#xd;
+&lt;/html&gt;</defaultBody>
+  <defaultPresendScript></defaultPresendScript>
+  <defaultPostsendScript></defaultPostsendScript>
+  <defaultClasspath/>
+  <defaultTriggerIds>
+    <string>hudson.plugins.emailext.plugins.trigger.FailureTrigger</string>
+  </defaultTriggerIds>
+  <maxAttachmentSize>-1</maxAttachmentSize>
+  <recipientList></recipientList>
+  <defaultReplyTo></defaultReplyTo>
+  <excludedCommitters></excludedCommitters>
+  <overrideGlobalSettings>true</overrideGlobalSettings>
+  <precedenceBulk>false</precedenceBulk>
+  <debugMode>false</debugMode>
+  <requireAdminForTemplateTesting>false</requireAdminForTemplateTesting>
+  <enableWatching>false</enableWatching>
+</hudson.plugins.emailext.ExtendedEmailPublisherDescriptor>

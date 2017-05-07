@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<com.hello2morrow.sonargraph.integration.jenkins.controller.SonargraphReportBuilder_-DescriptorImpl plugin="sonargraph-integration@2.0.2">
+  <licenseServerHost></licenseServerHost>
+  <licenseServerPort>8080</licenseServerPort>
+</com.hello2morrow.sonargraph.integration.jenkins.controller.SonargraphReportBuilder_-DescriptorImpl>
