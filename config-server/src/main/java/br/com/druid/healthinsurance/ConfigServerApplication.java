@@ -1,4 +1,4 @@
-package br.com.druid;
+package br.com.druid.healthinsurance;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

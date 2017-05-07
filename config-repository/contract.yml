@@ -62,6 +62,9 @@ spring:
   profiles: dsv
   application:
     name: contract
+  output:
+    ansi:
+      enabled: NEVER
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
     username: CONTRATO
