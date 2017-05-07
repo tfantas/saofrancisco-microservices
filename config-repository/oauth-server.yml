@@ -96,4 +96,50 @@ eureka:
 management:
   contextPath: /eureka
 
-
+---
+spring:
+  profiles: homolog
+  application:
+    name: oauth-server
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: CONTROLE_ACESSO
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    tomcat:
+      maxActive: 5	
+      maxIdle: 2
+      minIdle: 1
+      initialSize: 1	
+  rabbitmq:
+    host: 129.150.65.116
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: accessControl.audit
+          contentType: application/json
+server:
+  port: 9091
+  context-path: /
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://35.162.116.175:8761/eureka/
+  datacenter: cloud
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka

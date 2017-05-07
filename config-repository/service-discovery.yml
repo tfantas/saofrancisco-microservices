@@ -25,3 +25,20 @@ eureka:
     serviceUrl:
       defaultZone: http://ec2-35-166-252-70.us-west-2.compute.amazonaws.com:8761/eureka/
 
+
+---
+spring:
+  profiles: homolog
+  application:
+    name: service-discovery   
+server:
+  port: 8761
+eureka:
+  datacenter: cloud
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    region: us-west-2
+    serviceUrl:
+      defaultZone: http://35.162.116.175:8761/eureka/
+

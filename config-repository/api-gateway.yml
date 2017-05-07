@@ -80,3 +80,41 @@ hystrix:
           thread:
             timeoutInMilliseconds: 30000
 
+
+---
+spring:
+  profiles: homolog
+  application:
+    name: api-gateway   
+server:
+  port: 80
+zuul:
+  prefix: /services
+management:
+  contextPath: /eureka
+eureka:
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+  datacenter: cloud
+  client:
+    serviceUrl:
+      defaultZone: http://35.162.116.175:8761/eureka/
+ribbon:
+  ConnectTimeout: 30000
+  ReadTimeout: 30000
+security:
+  basic:
+    enabled: false
+  oauth2:
+    client:
+      accessTokenUri: http://oauth-server/oauth/token
+      userAuthorizationUri: /services/oauth-server/oauth/token
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+

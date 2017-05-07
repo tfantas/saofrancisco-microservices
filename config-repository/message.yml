@@ -91,3 +91,50 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
+
+---
+spring:
+  profiles: homolog
+  application:
+    name: message
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: MENSAGEM
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
+  rabbitmq:
+    host: 129.150.65.116
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: message.audit
+          contentType: application/json
+
+server:
+  port: 8090
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://35.162.116.175:8761/eureka/
+  datacenter: cloud
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
