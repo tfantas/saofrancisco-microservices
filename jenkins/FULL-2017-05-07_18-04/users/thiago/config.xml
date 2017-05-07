@@ -1,0 +1,76 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<user>
+  <fullName>Thiago Freitas Antas</fullName>
+  <properties>
+    <jenkins.security.ApiTokenProperty>
+      <apiToken>{AQAAABAAAAAweIHZOgQHh1IZHxae4LXC4ugILC1aaJxIW33a20QViRUuVhZjrVYsNDBcoh+Z/KJYQAlrnGDdabw8ocFJZx2bnA==}</apiToken>
+    </jenkins.security.ApiTokenProperty>
+    <com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty plugin="credentials@2.1.13">
+      <domainCredentialsMap class="hudson.util.CopyOnWriteMap$Hash"/>
+    </com.cloudbees.plugins.credentials.UserCredentialsProvider_-UserCredentialsProperty>
+    <hudson.model.MyViewsProperty>
+      <views>
+        <hudson.model.AllView>
+          <owner class="hudson.model.MyViewsProperty" reference="../../.."/>
+          <name>Tudo</name>
+          <filterExecutors>false</filterExecutors>
+          <filterQueue>false</filterQueue>
+          <properties class="hudson.model.View$PropertyList"/>
+        </hudson.model.AllView>
+      </views>
+    </hudson.model.MyViewsProperty>
+    <org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty plugin="display-url-api@1.1.1">
+      <providerId>default</providerId>
+    </org.jenkinsci.plugins.displayurlapi.user.PreferredProviderUserProperty>
+    <hudson.model.PaneStatusProperties>
+      <collapsed/>
+    </hudson.model.PaneStatusProperties>
+    <hudson.search.UserSearchProperty>
+      <insensitiveSearch>false</insensitiveSearch>
+    </hudson.search.UserSearchProperty>
+    <hudson.security.HudsonPrivateSecurityRealm_-Details>
+      <passwordHash>#jbcrypt:$2a$10$bIzJMdkirMhfq6jVFmcUNuxlhFlxNbTm.tEy3Ga5f6wvUMrMJLrbS</passwordHash>
+    </hudson.security.HudsonPrivateSecurityRealm_-Details>
+    <hudson.tasks.Mailer_-UserProperty plugin="mailer@1.19">
+      <emailAddress>thiago.antas@druid.com.br</emailAddress>
+    </hudson.tasks.Mailer_-UserProperty>
+    <jenkins.security.LastGrantedAuthoritiesProperty>
+      <roles>
+        <string>authenticated</string>
+      </roles>
+      <timestamp>1487892279648</timestamp>
+    </jenkins.security.LastGrantedAuthoritiesProperty>
+    <org.jenkinsci.plugins.gcm.user.GcmUserTokenProperty plugin="gcm-notification@1.0"/>
+    <hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty plugin="email-ext@2.57">
+      <triggers class="java.util.Collections$UnmodifiableRandomAccessList" resolves-to="java.util.Collections$UnmodifiableList">
+        <c class="list">
+          <hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+            <email>
+              <recipientList>thiago.antas@druid.com.br</recipientList>
+              <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+              <body>$PROJECT_DEFAULT_CONTENT</body>
+              <recipientProviders/>
+              <attachmentsPattern></attachmentsPattern>
+              <attachBuildLog>false</attachBuildLog>
+              <compressBuildLog>false</compressBuildLog>
+              <contentType>both</contentType>
+            </email>
+          </hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+          <hudson.plugins.emailext.plugins.trigger.SuccessTrigger>
+            <email>
+              <recipientList>thiago.antas@druid.com.br</recipientList>
+              <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+              <body>$PROJECT_DEFAULT_CONTENT</body>
+              <recipientProviders/>
+              <attachmentsPattern></attachmentsPattern>
+              <attachBuildLog>false</attachBuildLog>
+              <compressBuildLog>false</compressBuildLog>
+              <contentType>project</contentType>
+            </email>
+          </hudson.plugins.emailext.plugins.trigger.SuccessTrigger>
+        </c>
+        <list reference="../c"/>
+      </triggers>
+    </hudson.plugins.emailext.watching.EmailExtWatchAction_-UserProperty>
+  </properties>
+</user>

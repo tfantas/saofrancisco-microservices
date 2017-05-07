@@ -1,0 +1,420 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<project>
+  <actions/>
+  <description>saofrancisco-backoffice-web</description>
+  <keepDependencies>false</keepDependencies>
+  <properties>
+    <org.jenkinsci.plugins.gitlablogo.GitlabLogoProperty plugin="gitlab-logo@1.0.3">
+      <repositoryName></repositoryName>
+    </org.jenkinsci.plugins.gitlablogo.GitlabLogoProperty>
+    <de.pellepelster.jenkins.walldisplay.WallDisplayJobProperty plugin="jenkinswalldisplay@0.6.33"/>
+  </properties>
+  <scm class="hudson.plugins.git.GitSCM" plugin="git@3.1.0">
+    <configVersion>2</configVersion>
+    <userRemoteConfigs>
+      <hudson.plugins.git.UserRemoteConfig>
+        <url>https://github.com/druid-rio/saofrancisco-backoffice-web.git</url>
+        <credentialsId>f8eef911-9bd1-44e3-986f-15b8774f1015</credentialsId>
+      </hudson.plugins.git.UserRemoteConfig>
+    </userRemoteConfigs>
+    <branches>
+      <hudson.plugins.git.BranchSpec>
+        <name>*/develop</name>
+      </hudson.plugins.git.BranchSpec>
+    </branches>
+    <doGenerateSubmoduleConfigurations>false</doGenerateSubmoduleConfigurations>
+    <submoduleCfg class="list"/>
+    <extensions/>
+  </scm>
+  <canRoam>true</canRoam>
+  <disabled>false</disabled>
+  <blockBuildWhenDownstreamBuilding>false</blockBuildWhenDownstreamBuilding>
+  <blockBuildWhenUpstreamBuilding>false</blockBuildWhenUpstreamBuilding>
+  <triggers>
+    <hudson.triggers.SCMTrigger>
+      <spec>*/1 * * * *</spec>
+      <ignorePostCommitHooks>false</ignorePostCommitHooks>
+    </hudson.triggers.SCMTrigger>
+  </triggers>
+  <concurrentBuild>false</concurrentBuild>
+  <builders>
+    <hudson.tasks.Shell>
+      <command>npm install
+
+bower install --config.interactive=false
+
+grunt clean
+
+grunt copy
+
+grunt cssmin
+
+grunt htmlmin
+
+grunt uglify
+</command>
+    </hudson.tasks.Shell>
+    <jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin plugin="publish-over-ssh@1.17">
+      <delegate>
+        <consolePrefix>SSH: </consolePrefix>
+        <delegate>
+          <publishers>
+            <jenkins.plugins.publish__over__ssh.BapSshPublisher>
+              <configName>JENKINS_UBUNTU</configName>
+              <verbose>false</verbose>
+              <transfers>
+                <jenkins.plugins.publish__over__ssh.BapSshTransfer>
+                  <remoteDirectory>${BUILD_NUMBER}</remoteDirectory>
+                  <sourceFiles>**/**</sourceFiles>
+                  <excludes></excludes>
+                  <removePrefix></removePrefix>
+                  <remoteDirectorySDF>false</remoteDirectorySDF>
+                  <flatten>false</flatten>
+                  <cleanRemote>false</cleanRemote>
+                  <noDefaultExcludes>false</noDefaultExcludes>
+                  <makeEmptyDirs>false</makeEmptyDirs>
+                  <patternSeparator>[, ]+</patternSeparator>
+                  <execCommand>cp -r ${BUILD_NUMBER} /var/www/html/preview</execCommand>
+                  <execTimeout>120000</execTimeout>
+                  <usePty>false</usePty>
+                  <useAgentForwarding>false</useAgentForwarding>
+                </jenkins.plugins.publish__over__ssh.BapSshTransfer>
+              </transfers>
+              <useWorkspaceInPromotion>false</useWorkspaceInPromotion>
+              <usePromotionTimestamp>false</usePromotionTimestamp>
+            </jenkins.plugins.publish__over__ssh.BapSshPublisher>
+          </publishers>
+          <continueOnError>false</continueOnError>
+          <failOnError>false</failOnError>
+          <alwaysPublishFromMaster>false</alwaysPublishFromMaster>
+          <hostConfigurationAccess class="jenkins.plugins.publish_over_ssh.BapSshPublisherPlugin" reference="../.."/>
+        </delegate>
+      </delegate>
+    </jenkins.plugins.publish__over__ssh.BapSshBuilderPlugin>
+  </builders>
+  <publishers>
+    <org.jenkins__ci.plugins.flexible__publish.FlexiblePublisher plugin="flexible-publish@0.15.2">
+      <publishers>
+        <org.jenkins__ci.plugins.flexible__publish.ConditionalPublisher>
+          <condition class="org.jenkins_ci.plugins.run_condition.core.StatusCondition" plugin="run-condition@1.0">
+            <worstResult>
+              <name>SUCCESS</name>
+              <ordinal>0</ordinal>
+              <color>BLUE</color>
+              <completeBuild>true</completeBuild>
+            </worstResult>
+            <bestResult>
+              <name>SUCCESS</name>
+              <ordinal>0</ordinal>
+              <color>BLUE</color>
+              <completeBuild>true</completeBuild>
+            </bestResult>
+          </condition>
+          <publisherList>
+            <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.57">
+              <recipientList>thiago.antas@druid.com.br</recipientList>
+              <configuredTriggers>
+                <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+                  <email>
+                    <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+                    <body>$PROJECT_DEFAULT_CONTENT</body>
+                    <recipientProviders>
+                      <hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider/>
+                      <hudson.plugins.emailext.plugins.recipients.ListRecipientProvider/>
+                    </recipientProviders>
+                    <attachmentsPattern></attachmentsPattern>
+                    <attachBuildLog>false</attachBuildLog>
+                    <compressBuildLog>false</compressBuildLog>
+                    <replyTo>$PROJECT_DEFAULT_REPLYTO</replyTo>
+                    <contentType>project</contentType>
+                  </email>
+                </hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+                <hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+                  <email>
+                    <recipientList>thiago.antas@druid.com.br, ricoreis@druid.com.br</recipientList>
+                    <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+                    <body>$PROJECT_DEFAULT_CONTENT</body>
+                    <recipientProviders>
+                      <hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider/>
+                      <hudson.plugins.emailext.plugins.recipients.ListRecipientProvider/>
+                    </recipientProviders>
+                    <attachmentsPattern></attachmentsPattern>
+                    <attachBuildLog>false</attachBuildLog>
+                    <compressBuildLog>false</compressBuildLog>
+                    <replyTo>$PROJECT_DEFAULT_REPLYTO</replyTo>
+                    <contentType>project</contentType>
+                  </email>
+                </hudson.plugins.emailext.plugins.trigger.AlwaysTrigger>
+              </configuredTriggers>
+              <contentType>both</contentType>
+              <defaultSubject>[Integração Contínua] DSV ­ $BUILD_USER ­ Build da aplicação São Francisco $BUILD_STATUS</defaultSubject>
+              <defaultContent>&lt;html&gt;
+
+	&lt;head&gt;
+
+		&lt;title&gt;Druid&lt;/title&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+
+	&lt;/head&gt;
+	&lt;body&gt;
+
+		&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;580&quot; style=&quot;border: 20px solid #FFF; background: #FFF;&quot;&gt;
+			&lt;tr&gt;
+				&lt;td&gt;
+
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 50px solid #222; background: #222; font-family: Arial; font-size: 11pt;&quot;&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;text-align: center;&quot;&gt;
+								&lt;img src=&quot;http://www.druid.com.br/logo-druid-novo.jpg&quot; alt=&quot;Druid&quot; title=&quot;Druid&quot; /&gt;
+							&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 30px solid #eee; background: #eee; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;&quot;&gt;
+								O projeto &lt;strong&gt;São Francisco&lt;/strong&gt; passou por um processo automático de deploy de uma nova versão.
+							&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 30px solid #eee; background: #eee; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Aplicação&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;São Francisco&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Ambiente&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;Desenvolvimento&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Ação&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;Build&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Executor&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_USER&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;E­mail executor&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_USER_EMAIL&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Número Build&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_NUMBER&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Nó executor&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$NODE_NAME&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Número executor&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$EXECUTOR_NUMBER&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Status&lt;/td&gt;
+							&lt;td style=&quot;padding: 20px 0 20px 0;&quot;&gt;$BUILD_STATUS&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 50px solid #e1e1e1; background: #e1e1e1; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;text-align: center; color: #bbb;&quot;&gt;
+								&amp;copy; Druid | Todos os direitos reservados.
+							&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+
+				&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+
+	&lt;/body&gt;
+
+&lt;/html&gt;</defaultContent>
+              <attachmentsPattern></attachmentsPattern>
+              <presendScript>$DEFAULT_PRESEND_SCRIPT</presendScript>
+              <postsendScript>$DEFAULT_POSTSEND_SCRIPT</postsendScript>
+              <attachBuildLog>false</attachBuildLog>
+              <compressBuildLog>false</compressBuildLog>
+              <replyTo>$DEFAULT_REPLYTO</replyTo>
+              <saveOutput>false</saveOutput>
+              <disabled>false</disabled>
+            </hudson.plugins.emailext.ExtendedEmailPublisher>
+          </publisherList>
+          <runner class="org.jenkins_ci.plugins.run_condition.BuildStepRunner$Run" plugin="run-condition@1.0"/>
+          <executionStrategy class="org.jenkins_ci.plugins.flexible_publish.strategy.FailAtEndExecutionStrategy"/>
+        </org.jenkins__ci.plugins.flexible__publish.ConditionalPublisher>
+      </publishers>
+    </org.jenkins__ci.plugins.flexible__publish.FlexiblePublisher>
+    <hudson.plugins.pmd.PmdPublisher plugin="pmd@3.47">
+      <healthy></healthy>
+      <unHealthy></unHealthy>
+      <thresholdLimit>low</thresholdLimit>
+      <pluginName>[PMD] </pluginName>
+      <defaultEncoding></defaultEncoding>
+      <canRunOnFailed>true</canRunOnFailed>
+      <usePreviousBuildAsReference>false</usePreviousBuildAsReference>
+      <useStableBuildAsReference>false</useStableBuildAsReference>
+      <useDeltaValues>false</useDeltaValues>
+      <thresholds plugin="analysis-core@1.86">
+        <unstableTotalAll></unstableTotalAll>
+        <unstableTotalHigh></unstableTotalHigh>
+        <unstableTotalNormal></unstableTotalNormal>
+        <unstableTotalLow></unstableTotalLow>
+        <unstableNewAll></unstableNewAll>
+        <unstableNewHigh></unstableNewHigh>
+        <unstableNewNormal></unstableNewNormal>
+        <unstableNewLow></unstableNewLow>
+        <failedTotalAll></failedTotalAll>
+        <failedTotalHigh></failedTotalHigh>
+        <failedTotalNormal></failedTotalNormal>
+        <failedTotalLow></failedTotalLow>
+        <failedNewAll></failedNewAll>
+        <failedNewHigh></failedNewHigh>
+        <failedNewNormal></failedNewNormal>
+        <failedNewLow></failedNewLow>
+      </thresholds>
+      <shouldDetectModules>false</shouldDetectModules>
+      <dontComputeNew>true</dontComputeNew>
+      <doNotResolveRelativePaths>false</doNotResolveRelativePaths>
+      <pattern>**/pmd.xml</pattern>
+    </hudson.plugins.pmd.PmdPublisher>
+    <hudson.plugins.chucknorris.CordellWalkerRecorder plugin="chucknorris@1.0">
+      <factGenerator/>
+    </hudson.plugins.chucknorris.CordellWalkerRecorder>
+    <hudson.plugins.persona.QuotePublisher plugin="persona@2.4">
+      <persona>RandomPersonaId</persona>
+      <selector class="hudson.plugins.persona.selector.BottomLeftSelector"/>
+    </hudson.plugins.persona.QuotePublisher>
+    <hudson.plugins.emailext.ExtendedEmailPublisher plugin="email-ext@2.57">
+      <recipientList>thiago.antas@druid.com.br</recipientList>
+      <configuredTriggers>
+        <hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+          <email>
+            <subject>$PROJECT_DEFAULT_SUBJECT</subject>
+            <body>$PROJECT_DEFAULT_CONTENT</body>
+            <recipientProviders>
+              <hudson.plugins.emailext.plugins.recipients.DevelopersRecipientProvider/>
+            </recipientProviders>
+            <attachmentsPattern></attachmentsPattern>
+            <attachBuildLog>false</attachBuildLog>
+            <compressBuildLog>false</compressBuildLog>
+            <replyTo>$PROJECT_DEFAULT_REPLYTO</replyTo>
+            <contentType>project</contentType>
+          </email>
+        </hudson.plugins.emailext.plugins.trigger.FailureTrigger>
+      </configuredTriggers>
+      <contentType>both</contentType>
+      <defaultSubject>[Integração Contínua] DSV ­ $BUILD_USER ­ Build da aplicação São Francisco $BUILD_STATUS</defaultSubject>
+      <defaultContent>&lt;html&gt;
+
+	&lt;head&gt;
+
+		&lt;title&gt;Druid&lt;/title&gt;
+		&lt;meta charset=&quot;UTF-8&quot;&gt;
+
+	&lt;/head&gt;
+	&lt;body&gt;
+
+		&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;580&quot; style=&quot;border: 20px solid #FFF; background: #FFF;&quot;&gt;
+			&lt;tr&gt;
+				&lt;td&gt;
+
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 50px solid #222; background: #222; font-family: Arial; font-size: 11pt;&quot;&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;text-align: center;&quot;&gt;
+								&lt;img src=&quot;http://www.druid.com.br/logo-druid-novo.jpg&quot; alt=&quot;Druid&quot; title=&quot;Druid&quot; /&gt;
+							&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 30px solid #eee; background: #eee; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;&quot;&gt;
+								O projeto &lt;strong&gt;São Francisco&lt;/strong&gt; passou por um processo automático de deploy de uma nova versão.
+							&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 30px solid #eee; background: #eee; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Aplicação&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;São Francisco&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Ambiente&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;Desenvolvimento&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Ação&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;Build&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Executor&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_USER&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;E­mail executor&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_USER_EMAIL&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Número Build&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$BUILD_NUMBER&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Nó executor&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$NODE_NAME&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Número executor&lt;/td&gt;
+							&lt;td style=&quot;border-bottom: #d4d4d4 dotted 1px; padding: 20px 0 20px 0;&quot;&gt;$EXECUTOR_NUMBER&lt;/td&gt;
+						&lt;/tr&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;padding: 20px 0 20px 0; color: #999; font-size: 9pt; text-transform: uppercase;&quot;&gt;Status&lt;/td&gt;
+							&lt;td style=&quot;padding: 20px 0 20px 0;&quot;&gt;$BUILD_STATUS&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+
+					&lt;table cellspacing=&quot;0&quot; cellpadding=&quot;0&quot; border=&quot;0&quot; width=&quot;540&quot; style=&quot;border: 50px solid #e1e1e1; background: #e1e1e1; color: #333; font-family: Arial; font-size: 11pt;&quot;&gt;
+						&lt;tr&gt;
+							&lt;td style=&quot;text-align: center; color: #bbb;&quot;&gt;
+								&amp;copy; Druid | Todos os direitos reservados.
+							&lt;/td&gt;
+						&lt;/tr&gt;
+					&lt;/table&gt;
+
+				&lt;/td&gt;
+			&lt;/tr&gt;
+		&lt;/table&gt;
+
+	&lt;/body&gt;
+
+&lt;/html&gt;</defaultContent>
+      <attachmentsPattern></attachmentsPattern>
+      <presendScript>$DEFAULT_PRESEND_SCRIPT</presendScript>
+      <postsendScript>$DEFAULT_POSTSEND_SCRIPT</postsendScript>
+      <attachBuildLog>false</attachBuildLog>
+      <compressBuildLog>false</compressBuildLog>
+      <replyTo>$DEFAULT_REPLYTO</replyTo>
+      <saveOutput>false</saveOutput>
+      <disabled>false</disabled>
+    </hudson.plugins.emailext.ExtendedEmailPublisher>
+    <hudson.tasks.Mailer plugin="mailer@1.19">
+      <recipients>devopts@druid.com.br</recipients>
+      <dontNotifyEveryUnstableBuild>false</dontNotifyEveryUnstableBuild>
+      <sendToIndividuals>true</sendToIndividuals>
+    </hudson.tasks.Mailer>
+    <com.hoiio.jenkins.plugin.SMSNotification plugin="sms@1.2">
+      <recipients>+5521972828125</recipients>
+    </com.hoiio.jenkins.plugin.SMSNotification>
+  </publishers>
+  <buildWrappers>
+    <hudson.plugins.ws__cleanup.PreBuildCleanup plugin="ws-cleanup@0.32">
+      <deleteDirs>false</deleteDirs>
+      <cleanupParameter></cleanupParameter>
+      <externalDelete></externalDelete>
+    </hudson.plugins.ws__cleanup.PreBuildCleanup>
+    <hudson.plugins.timestamper.TimestamperBuildWrapper plugin="timestamper@1.8.8"/>
+  </buildWrappers>
+</project>

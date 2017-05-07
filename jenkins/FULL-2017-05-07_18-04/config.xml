@@ -1,0 +1,190 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<hudson>
+  <disabledAdministrativeMonitors>
+    <string>hudson.diagnosis.ReverseProxySetupMonitor</string>
+  </disabledAdministrativeMonitors>
+  <version>2.32.3</version>
+  <numExecutors>6</numExecutors>
+  <mode>NORMAL</mode>
+  <useSecurity>true</useSecurity>
+  <authorizationStrategy class="hudson.security.FullControlOnceLoggedInAuthorizationStrategy">
+    <denyAnonymousReadAccess>true</denyAnonymousReadAccess>
+  </authorizationStrategy>
+  <securityRealm class="hudson.security.HudsonPrivateSecurityRealm">
+    <disableSignup>true</disableSignup>
+    <enableCaptcha>false</enableCaptcha>
+  </securityRealm>
+  <disableRememberMe>false</disableRememberMe>
+  <projectNamingStrategy class="jenkins.model.ProjectNamingStrategy$DefaultProjectNamingStrategy"/>
+  <workspaceDir>${JENKINS_HOME}/workspace/${ITEM_FULLNAME}</workspaceDir>
+  <buildsDir>${ITEM_ROOTDIR}/builds</buildsDir>
+  <jdks/>
+  <viewsTabBar class="hudson.views.DefaultViewsTabBar"/>
+  <myViewsTabBar class="hudson.views.DefaultMyViewsTabBar"/>
+  <clouds/>
+  <quietPeriod>5</quietPeriod>
+  <scmCheckoutRetryCount>0</scmCheckoutRetryCount>
+  <views>
+    <hudson.model.AllView>
+      <owner class="hudson" reference="../../.."/>
+      <name>All</name>
+      <description>Servidor de Integração Continua na Amazon</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+    </hudson.model.AllView>
+    <listView>
+      <owner class="hudson" reference="../../.."/>
+      <name>Listas dos Jobs</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>backoffice-web</string>
+        <string>saofrancisco-billing</string>
+        <string>saofrancisco-contract</string>
+        <string>saofrancisco-price</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+      </columns>
+      <recurse>false</recurse>
+    </listView>
+    <com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView plugin="build-monitor-plugin@1.11+build.201701152243">
+      <owner class="hudson" reference="../../.."/>
+      <name>Build Monitor</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>backoffice-web</string>
+        <string>saofrancisco-access-control</string>
+        <string>saofrancisco-address</string>
+        <string>saofrancisco-api-gateway</string>
+        <string>saofrancisco-beneficiary</string>
+        <string>saofrancisco-billing</string>
+        <string>saofrancisco-company</string>
+        <string>saofrancisco-config-server</string>
+        <string>saofrancisco-contract</string>
+        <string>saofrancisco-document</string>
+        <string>saofrancisco-message</string>
+        <string>saofrancisco-oauth-server</string>
+        <string>saofrancisco-price</string>
+        <string>saofrancisco-service-discovery</string>
+        <string>saofrancisco-sib</string>
+        <string>saofrancisco-sib-batch</string>
+        <string>saofrancisco-sib-imp</string>
+      </jobNames>
+      <jobFilters/>
+      <columns/>
+      <recurse>true</recurse>
+      <title>Build Monitor</title>
+      <config>
+        <displayCommitters>true</displayCommitters>
+        <order class="com.smartcodeltd.jenkinsci.plugins.buildmonitor.order.ByDisplayName"/>
+      </config>
+    </com.smartcodeltd.jenkinsci.plugins.buildmonitor.BuildMonitorView>
+    <org.jenkinsci.plugins.reportinfo.ReportInfo plugin="report-info@1.0">
+      <owner class="hudson" reference="../../.."/>
+      <name>PMD</name>
+      <filterExecutors>true</filterExecutors>
+      <filterQueue>true</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator"/>
+        <string>backoffice-web</string>
+        <string>saofrancisco-address</string>
+        <string>saofrancisco-beneficiary</string>
+        <string>saofrancisco-company</string>
+        <string>saofrancisco-contract</string>
+        <string>saofrancisco-document</string>
+      </jobNames>
+      <jobFilters/>
+      <columns>
+        <hudson.views.StatusColumn/>
+        <hudson.views.WeatherColumn/>
+        <hudson.views.JobColumn/>
+        <hudson.views.LastSuccessColumn/>
+        <hudson.views.LastFailureColumn/>
+        <hudson.views.LastDurationColumn/>
+        <hudson.views.BuildButtonColumn/>
+        <org.jenkins.ci.plugins.progress__bar.ProgressBarColumn plugin="progress-bar-column-plugin@1.0"/>
+      </columns>
+      <recurse>true</recurse>
+    </org.jenkinsci.plugins.reportinfo.ReportInfo>
+    <hudson.plugins.iphoneview.IPhoneView plugin="iphoneview@0.2">
+      <owner class="hudson" reference="../../.."/>
+      <name>iPhone</name>
+      <description>iPhone</description>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../org.jenkinsci.plugins.reportinfo.ReportInfo/jobNames/comparator"/>
+        <string>backoffice-web</string>
+        <string>saofrancisco-address</string>
+        <string>saofrancisco-beneficiary</string>
+        <string>saofrancisco-billing</string>
+        <string>saofrancisco-company</string>
+        <string>saofrancisco-contract</string>
+        <string>saofrancisco-document</string>
+        <string>saofrancisco-price</string>
+        <string>saofrancisco-sib</string>
+      </jobNames>
+      <jobFilters/>
+      <columns/>
+      <recurse>true</recurse>
+    </hudson.plugins.iphoneview.IPhoneView>
+    <org.jenkinsci.plugins.reportinfo.ReportInfo plugin="report-info@1.0">
+      <owner class="hudson" reference="../../.."/>
+      <name>Report Info</name>
+      <filterExecutors>false</filterExecutors>
+      <filterQueue>false</filterQueue>
+      <properties class="hudson.model.View$PropertyList"/>
+      <jobNames>
+        <comparator class="hudson.util.CaseInsensitiveComparator" reference="../../../org.jenkinsci.plugins.reportinfo.ReportInfo/jobNames/comparator"/>
+      </jobNames>
+      <jobFilters>
+        <hudson.views.AllJobsFilter plugin="view-job-filters@1.27"/>
+      </jobFilters>
+      <columns>
+        <hudson.views.JobColumn/>
+        <hudson.plugins.analysis.collector.WarningsCountColumn plugin="analysis-collector@1.50">
+          <warningsAggregator>
+            <isCheckStyleActivated>false</isCheckStyleActivated>
+            <isDryActivated>false</isDryActivated>
+            <isFindBugsActivated>false</isFindBugsActivated>
+            <isPmdActivated>true</isPmdActivated>
+            <isOpenTasksActivated>false</isOpenTasksActivated>
+            <isWarningsActivated>false</isWarningsActivated>
+            <hideJobPrefix>false</hideJobPrefix>
+          </warningsAggregator>
+        </hudson.plugins.analysis.collector.WarningsCountColumn>
+        <org.jvnet.hudson.plugins.m2release.LastReleaseListViewColumn plugin="m2release@0.14.0"/>
+        <hudson.views.BuildFilterColumn plugin="view-job-filters@1.27">
+          <delegate class="org.jenkinsci.plugins.emailextrecipientscolumn.EmailExtRecipientsColumn" plugin="email-ext-recipients-column@1.0"/>
+          <view class="org.jenkinsci.plugins.reportinfo.ReportInfo" reference="../../.."/>
+        </hudson.views.BuildFilterColumn>
+        <hudson.plugins.pmd.PmdColumn plugin="pmd@3.47"/>
+      </columns>
+      <recurse>false</recurse>
+    </org.jenkinsci.plugins.reportinfo.ReportInfo>
+  </views>
+  <primaryView>All</primaryView>
+  <slaveAgentPort>-1</slaveAgentPort>
+  <label></label>
+  <crumbIssuer class="hudson.security.csrf.DefaultCrumbIssuer">
+    <excludeClientIPFromCrumb>false</excludeClientIPFromCrumb>
+  </crumbIssuer>
+  <nodeProperties/>
+  <globalNodeProperties/>
+</hudson>

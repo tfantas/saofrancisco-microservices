@@ -1,0 +1,127 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin_-Descriptor plugin="publish-over-ssh@1.17">
+  <hostConfigurations>
+    <jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+      <name>SF-DSV-1</name>
+      <hostname>ec2-35-166-252-70.us-west-2.compute.amazonaws.com</hostname>
+      <username>ec2-user</username>
+      <secretPassword>{AQAAABAAAAAQ1IVTh05wjRXP9jhTgLAO13a2bhBWjN7NLvOqbzWvW8o=}</secretPassword>
+      <remoteRootDir></remoteRootDir>
+      <port>22</port>
+      <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration">
+        <secretPassphrase>{AQAAABAAAAAQWB5Y02TDh+Of+bnvemEc/LY8GZdEOp8a458t+RnoQCA=}</secretPassphrase>
+        <key>-----BEGIN RSA PRIVATE KEY-----
+MIIEpQIBAAKCAQEAugcHRKEuB0Zopl7cHEIOOgQT6xAz7fJGH13F3n8nD8BImB3tS9+HzR5z+Nxo
+VPyjt2PH9qXxgLl18m1k+ZQdP/7UJNlLxH4AOtVAb8oqSsxK+J4XZg+CSTcXeqBIZoT9dkXVJkCH
+rPqBBi+Qz0oYA2TXZ2sO03urgVVUSCs5dLzYq8NjGOzLuinJKvaN2iLlJR+DNLMYGAlTY6ay4VRI
+Tduhhc5DJtbRt0sdr1YuelQu/xjDGPQJsrTLBzah6eCLymyMzPGkZfuDFPPWLcuSrV+As1ktKv6P
+1clrXwxeOxL91HXtrvYGrd5O0zyF5sAMLpLnYW0Bv6yG7WIu5hWNZQIDAQABAoIBAQCDfEhE1+/i
+sH9zaIUHbCEGHK+/a9poit/Jd8xNsW34kh49dpmtETe5YZbzBUaxG0jUbLB/w1bpdyzIx02honDy
+NLnZucT2A2FCNEyxNyGhcLhk9cjwGHIsMcZkpDnITKOiH0XDHcVIHF9p8eDWwzYp3/LoZCE8laLp
+bVh/Eh4wRb3Ht7AeO0k8Z/L6a8SXjT/lvB57fQD6htKyw275qfK04Rfz5mw+dLh5TGjwYf1cF1rg
+x9+WA+HleFEd0NENn+UnNAgjlNCtNhlOasT/lu0p8OKlJSflQ+jL2fEnRiucy4Eqc3zM1aFQjFoG
+e8x/wv4azN4azz2eFytNS6yZwR/ZAoGBAORjv4kkSOR8gSLDVrrLEXi177MD9RcJZzcJwpXPWd1Z
+4rliwrjXVeGYvX28+PYN/hkkW5uNDNUA2NPKSnCSZJJdHe24Pt8E/9ETAVBVREd0JuXFZlUw6Y+r
+iQrBPQKJuDWZm3rdfOEQzsA2LK8+N3lkKhUEfXahj5oMak2g6kBfAoGBANCEPwIfdo41yyOUJFWC
+yJCYMYwgt9V9E5jJ72wayEpDuKPB1NDV1lcAS81vz6/2LNGlLsF+goB6Z6PdLm3Pg+rMNpWqcKDI
+MUFwu1aPDydoJB7he1qy+o+2ZnXxL95eKcA/9MrG2U7JAnS+pzGYJQTqKNdzAFHSfqBu6AT2tHi7
+AoGBALqc2krHcBvps2ZhL8OO22bDWejuydsZ3tE0016vPyFDKaMKlEqOAGlF8UcFGnOKOV33vDZc
+SOjeOUzMFIjoxO5m0WaEzjJSFmiR29f048ZynLnP0m63eY/fvCkifaROPUrmiQkaYshPgG/DlD1Y
+W+F/O3dS5OUC26AmltF5Mw6HAoGBAMCzVt+JYDEwuZkZ0TJNeTlXzYJowjvEKZYsGN3ZKnyndT2x
+ZhHRbRJeLa+fw1oksWrVsw4S8lv1w04GnF/TRWB6dX9/UjLkj9CgdCEceK68aZU4YJ2DhlfGA46/
+5LMmZoNLF9lGR5Gt5l0pzK3io2OVW0Uw/HyhgXCWzkm4DTT9AoGAKF3dnqIqPIYjlM0ufBK8npUw
+NbM8fbh/r9iKRsTV9dpbX9RCrYVAN02NMBnt/pSzP67vs5hz7/6Iq7/br0DUOSB5LgbcZbtJs5wK
+HFwDCz6K+wWgfW3ylpLtS6S7oilBdzhd2cpNYVg4JlpOM4KbMww67uL+5wWPbn9vtJbUYpI=
+-----END RSA PRIVATE KEY-----
+</key>
+        <keyPath></keyPath>
+        <disableAllExec>false</disableAllExec>
+      </commonConfig>
+      <timeout>300000</timeout>
+      <overrideKey>false</overrideKey>
+      <disableExec>false</disableExec>
+      <keyInfo>
+        <secretPassphrase>{AQAAABAAAAAQGLGXPMxEjTqEOXVSQwZR98MR1Rhv+sH8TQJY3g73FQ0=}</secretPassphrase>
+        <key></key>
+        <keyPath></keyPath>
+      </keyInfo>
+      <jumpHost></jumpHost>
+      <proxyType></proxyType>
+      <proxyHost></proxyHost>
+      <proxyPort>0</proxyPort>
+      <proxyUser></proxyUser>
+      <proxyPassword></proxyPassword>
+    </jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+    <jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+      <name>SF-DSV-3</name>
+      <hostname>ec2-54-201-51-3.us-west-2.compute.amazonaws.com</hostname>
+      <username>ec2-user</username>
+      <secretPassword>{AQAAABAAAAAQPCIws7ySNz5KPsFYihxohS1GLG2Z+iyIQIPeaniAjoY=}</secretPassword>
+      <remoteRootDir></remoteRootDir>
+      <port>22</port>
+      <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration" reference="../../jenkins.plugins.publish__over__ssh.BapSshHostConfiguration/commonConfig"/>
+      <timeout>300000</timeout>
+      <overrideKey>false</overrideKey>
+      <disableExec>false</disableExec>
+      <keyInfo>
+        <secretPassphrase>{AQAAABAAAAAQAQ2qsqApOG86xmm0HJm8zLnxMwVx/0FLLgDa0OhfPz4=}</secretPassphrase>
+        <key></key>
+        <keyPath></keyPath>
+      </keyInfo>
+      <jumpHost></jumpHost>
+      <proxyType></proxyType>
+      <proxyHost></proxyHost>
+      <proxyPort>0</proxyPort>
+      <proxyUser></proxyUser>
+      <proxyPassword></proxyPassword>
+    </jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+    <jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+      <name>JENKINS_AWS</name>
+      <hostname>ec2-54-213-47-10.us-west-2.compute.amazonaws.com</hostname>
+      <username>ec2-user</username>
+      <secretPassword>{AQAAABAAAAAQ8F9umAJDVrtlS4iVL3WsxlHS7CsVOructjONCxR2eqE=}</secretPassword>
+      <remoteRootDir></remoteRootDir>
+      <port>22</port>
+      <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration" reference="../../jenkins.plugins.publish__over__ssh.BapSshHostConfiguration/commonConfig"/>
+      <timeout>300000</timeout>
+      <overrideKey>false</overrideKey>
+      <disableExec>false</disableExec>
+      <keyInfo>
+        <secretPassphrase>{AQAAABAAAAAQqLXBGxZUYvw+Dy1OYMFYf/bjZ0G1fILpzMBOCDR1tzE=}</secretPassphrase>
+        <key></key>
+        <keyPath></keyPath>
+      </keyInfo>
+      <jumpHost></jumpHost>
+      <proxyType></proxyType>
+      <proxyHost></proxyHost>
+      <proxyPort>0</proxyPort>
+      <proxyUser></proxyUser>
+      <proxyPassword></proxyPassword>
+    </jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+    <jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+      <name>JENKINS_UBUNTU</name>
+      <hostname>ec2-54-213-253-9.us-west-2.compute.amazonaws.com</hostname>
+      <username>ubuntu</username>
+      <secretPassword>{AQAAABAAAAAQJpayPkMEHZKhWrwaJDeGzEp8YZ838PblgeoHPVXh9eE=}</secretPassword>
+      <remoteRootDir></remoteRootDir>
+      <port>22</port>
+      <commonConfig class="jenkins.plugins.publish_over_ssh.BapSshCommonConfiguration" reference="../../jenkins.plugins.publish__over__ssh.BapSshHostConfiguration/commonConfig"/>
+      <timeout>300000</timeout>
+      <overrideKey>false</overrideKey>
+      <disableExec>false</disableExec>
+      <keyInfo>
+        <secretPassphrase>{AQAAABAAAAAQBXHrNYgpVE2ey+Qfs6JbbY1xm462JIP9YhWE6CYVpFs=}</secretPassphrase>
+        <key></key>
+        <keyPath></keyPath>
+      </keyInfo>
+      <jumpHost></jumpHost>
+      <proxyType></proxyType>
+      <proxyHost></proxyHost>
+      <proxyPort>0</proxyPort>
+      <proxyUser></proxyUser>
+      <proxyPassword></proxyPassword>
+    </jenkins.plugins.publish__over__ssh.BapSshHostConfiguration>
+  </hostConfigurations>
+  <commonConfig reference="../hostConfigurations/jenkins.plugins.publish__over__ssh.BapSshHostConfiguration/commonConfig"/>
+  <defaults class="jenkins.plugins.publish_over_ssh.options.SshPluginDefaults"/>
+</jenkins.plugins.publish__over__ssh.BapSshPublisherPlugin_-Descriptor>
