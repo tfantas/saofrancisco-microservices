@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<com.hello2morrow.sonargraph.jenkinsplugin.controller.SonargraphReportBuilder_-DescriptorImpl plugin="sonargraph-plugin@1.6.4">
+  <license>/var/lib/jenkins/.hello2morrow/SonargraphArchitect/SonargraphArchitect.license</license>
+  <activationCode></activationCode>
+  <version></version>
+  <productType>SonargraphArchitect</productType>
+</com.hello2morrow.sonargraph.jenkinsplugin.controller.SonargraphReportBuilder_-DescriptorImpl>

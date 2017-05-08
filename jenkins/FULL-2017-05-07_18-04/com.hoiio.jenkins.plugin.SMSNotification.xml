@@ -1,0 +1,5 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<com.hoiio.jenkins.plugin.SMSNotification_-DescriptorImpl plugin="sms@1.2">
+  <appId></appId>
+  <accessToken></accessToken>
+</com.hoiio.jenkins.plugin.SMSNotification_-DescriptorImpl>
