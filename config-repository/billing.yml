@@ -4,7 +4,7 @@ spring:
     name: billing
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: CONTRATO
+    username: FATURAMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     tomcat:
@@ -39,7 +39,7 @@ spring:
     name: billing
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: CONTRATO
+    username: FATURAMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     tomcat:
@@ -73,7 +73,7 @@ spring:
     name: billing
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: CONTRATO
+    username: FATURAMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     tomcat:
