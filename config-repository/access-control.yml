@@ -201,7 +201,7 @@ feign:
     enabled: true
 access-control:
   app:
-    url: http://localhost/public/dist/#!
+    url: http://saofrancisco.druid.com.br/preview/561/public/dist/#!
   token:
     expiration:
       days: 7
