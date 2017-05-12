@@ -99,7 +99,7 @@ eureka:
   datacenter: cloud
   client:
     serviceUrl:
-      defaultZone: http://35.162.116.175:8761/eureka/
+      defaultZone: http://192.168.112.13:8761/eureka/
 ribbon:
   ConnectTimeout: 30000
   ReadTimeout: 30000
