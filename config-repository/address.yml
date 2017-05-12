@@ -10,11 +10,10 @@ spring:
     username: ENDERECO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    tomcat:
-      maxActive: 5	
-      maxIdle: 2
-      minIdle: 1
-      initialSize: 1	
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5	
   rabbitmq:
     host: 129.150.65.116
   jpa:
@@ -42,7 +41,20 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
-
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
 
 ---
 spring:
