@@ -37,12 +37,12 @@ spring:
           binder: rabbit
           destination: company.audit
           contentType: application/json
-          group: companyService
+          group: companyService-local1
         worksAddressAudit:
           binder: rabbit
           destination: address.audit
           contentType: application/json
-          group: companyService
+          group: companyService-local2
 
 server:
   port: 8084
