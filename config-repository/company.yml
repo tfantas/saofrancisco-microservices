@@ -31,16 +31,16 @@ spring:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: company.audit
+          destination: company.audit-local0
           contentType: application/json
         worksCompanyAudit:
           binder: rabbit
-          destination: company.audit
+          destination: company.audit-local1
           contentType: application/json
           group: companyService-local1
         worksAddressAudit:
           binder: rabbit
-          destination: address.audit
+          destination: address.audit-local2
           contentType: application/json
           group: companyService-local2
 
