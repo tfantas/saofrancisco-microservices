@@ -32,14 +32,13 @@ spring:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: beneficiary.audit-local0
+          destination: beneficiary.audit
           contentType: application/json
-          group: beneficiaryService-local0
         worksBeneficiaryAudit:
           binder: rabbit
-          destination: beneficiary.audit-local1
+          destination: beneficiary.audit
           contentType: application/json
-          group: beneficiaryService-local1
+          group: beneficiaryService
 
 server:
   port: 8095
