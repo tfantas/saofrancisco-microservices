@@ -15,7 +15,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: 35.162.116.175
+    host: 129.150.65.116		
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -31,18 +31,18 @@ spring:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: company.audit
+          destination: company.audit-local0
           contentType: application/json
         worksCompanyAudit:
           binder: rabbit
-          destination: company.audit
+          destination: company.audit-local1
           contentType: application/json
-          group: companyService
+          group: companyService-local1
         worksAddressAudit:
           binder: rabbit
-          destination: company.audit
+          destination: address.audit-local2
           contentType: application/json
-          group: companyService
+          group: companyService-local2
 
 server:
   port: 8084
@@ -87,7 +87,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: 35.162.116.175
+    host: 129.150.65.116
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -112,7 +112,7 @@ spring:
           group: companyService
         worksAddressAudit:
           binder: rabbit
-          destination: company.audit
+          destination: address.audit
           contentType: application/json
           group: companyService
 server:
