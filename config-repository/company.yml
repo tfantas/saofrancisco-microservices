@@ -15,7 +15,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: 129.150.65.116		
+    host: 35.162.116.175
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -87,7 +87,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: 129.150.65.116
+    host: 35.162.116.175
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
