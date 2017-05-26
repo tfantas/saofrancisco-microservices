@@ -31,18 +31,18 @@ spring:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: company.audit-local0
+          destination: company.audit
           contentType: application/json
         worksCompanyAudit:
           binder: rabbit
-          destination: company.audit-local1
+          destination: company.audit
           contentType: application/json
-          group: companyService-local1
+          group: companyService
         worksAddressAudit:
           binder: rabbit
-          destination: address.audit-local2
+          destination: address.audit
           contentType: application/json
-          group: companyService-local2
+          group: companyService
 
 server:
   port: 8084
