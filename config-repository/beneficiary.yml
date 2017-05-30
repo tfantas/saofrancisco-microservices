@@ -16,7 +16,7 @@ spring:
       minIdle: 1
       initialSize: 1
   rabbitmq:
-    host: 129.150.65.116
+    host: localhost
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -32,13 +32,13 @@ spring:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: beneficiary.audit
+          destination: beneficiary1.audit
           contentType: application/json
         worksBeneficiaryAudit:
           binder: rabbit
-          destination: beneficiary.audit
+          destination: beneficiary2.audit
           contentType: application/json
-          group: beneficiaryService
+          group: beneficiaryService3
 
 server:
   port: 8095
@@ -104,11 +104,7 @@ spring:
           binder: rabbit
           destination: beneficiary.audit
           contentType: application/json
-        worksBeneficiaryAudit:
-          binder: rabbit
-          destination: beneficiary.audit
-          contentType: application/json
-          group: beneficiaryService
+ 
 server:
   port: 8095
 eureka:
