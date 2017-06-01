@@ -29,7 +29,6 @@ spring:
           binder: rabbit
           destination: contract.audit
           contentType: application/json
-	  group: contractService
 server:
   port: 8088
 eureka:
@@ -90,7 +89,6 @@ spring:
           binder: rabbit
           destination: contract.audit
           contentType: application/json
-          group: contractService
 server:
   port: 8088
 eureka:
