@@ -18,6 +18,18 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: billing.audit
+          contentType: application/json
+        worksBillingtAudit:
+          binder: rabbit
+          destination: billing.audit
+          contentType: application/json
+          group: billingService
 server:
   port: 8089
 eureka:
@@ -53,6 +65,18 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: billing.audit
+          contentType: application/json
+        worksBillingtAudit:
+          binder: rabbit
+          destination: billing.audit
+          contentType: application/json
+          group: billingService
 server:
   port: 8089
 eureka:
