@@ -30,8 +30,9 @@ spring:
           binder: rabbit
           destination: price.audit
           contentType: application/json
+          group: priceService
 server:
-  port: 8088
+  port: 8091
 eureka:
   client:
     serviceUrl:
@@ -87,8 +88,9 @@ spring:
           binder: rabbit
           destination: price.audit
           contentType: application/json
+          group: priceService
 server:
-  port: 8088
+  port: 8091
 eureka:
   client:
     serviceUrl:
