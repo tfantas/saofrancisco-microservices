@@ -26,6 +26,11 @@ spring:
           binder: rabbit
           destination: document.audit
           contentType: application/json
+        worksDocumentAudit:
+          binder: rabbit
+          destination: document.audit
+          contentType: application/json
+          group: documentService
 server:
   port: 8086
 eureka:
@@ -73,6 +78,11 @@ spring:
           binder: rabbit
           destination: document.audit
           contentType: application/json
+        worksDocumentAudit:
+          binder: rabbit
+          destination: document.audit
+          contentType: application/json
+          group: documentService
 server:
   port: 8086
 eureka:
