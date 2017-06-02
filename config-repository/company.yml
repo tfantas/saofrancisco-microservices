@@ -153,7 +153,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: 129.150.65.116
+    host: vm-linux-higia-001
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
