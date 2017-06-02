@@ -16,7 +16,7 @@ public class AwsDockerConfig {
 	private int port;
 
 	@Bean
-	@Profile("!default")
+	@Profile("dsv")
 	public EurekaInstanceConfigBean eurekaInstanceConfig(InetUtils inetUtils) {
 	    EurekaInstanceConfigBean config = new EurekaInstanceConfigBean(inetUtils);
 	    AmazonInfo info = AmazonInfo.Builder.newBuilder().autoBuild("eureka");
