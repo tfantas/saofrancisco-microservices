@@ -117,7 +117,7 @@ spring:
           validation:
             mode: none
   rabbitmq:
-    host: 129.150.65.116
+    host: 192.168.112.13
   cloud:
     stream:
       bindings:
@@ -131,7 +131,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://35.162.116.175:8761/eureka/
+      defaultZone: http://192.168.112.13:8761/eureka/
   datacenter: cloud
   instance:
     statusPageUrlPath: /eureka/info

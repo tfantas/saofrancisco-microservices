@@ -1,18 +1,14 @@
 ---
 spring:
   application:
-    name: document
+    name: daemon
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: documento
+    username: CONCENTRADOR_ANS
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    hikari:
-      connection-test-query: SELECT 1 FROM DUAL
-      minimum-idle: 1
-      maximum-pool-size: 5
   rabbitmq:
-    host: 129.150.65.116		
+    host: 129.150.65.116
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -20,19 +16,20 @@ spring:
         show_sql: true
         format_sql: true
   cloud:
-    stream:
-      bindings:
-        worksAudit:
-          binder: rabbit
-          destination: document.audit
-          contentType: application/json
-        worksDocumentAudit:
-          binder: rabbit
-          destination: document.audit
-          contentType: application/json
-          group: documentService
+   stream:
+     bindings:
+       worksAudit:
+         binder: rabbit
+         destination: beneficiary.audit
+         contentType: application/json
+       worksBeneficiaryAudit:
+         binder: rabbit
+         destination: beneficiary.audit
+         contentType: application/json
+         group: beneficiaryService
+         
 server:
-  port: 8086
+  port: 8098
 eureka:
   client:
     serviceUrl:
@@ -49,42 +46,20 @@ management:
 spring:
   profiles: dsv
   application:
-    name: document
+    name: daemon
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: documento
+    username: CONCENTRADOR_ANS
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    hikari:
-      connection-test-query: SELECT 1 FROM DUAL
-      minimum-idle: 1
-      maximum-pool-size: 5
-  rabbitmq:
-    host: 129.150.65.116	
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         show_sql: true
         format_sql: true
-      javax:
-        persistence:
-          validation:
-            mode: none
-  cloud:
-    stream:
-      bindings:
-        worksAudit:
-          binder: rabbit
-          destination: document.audit
-          contentType: application/json
-        worksDocumentAudit:
-          binder: rabbit
-          destination: document.audit
-          contentType: application/json
-          group: documentService
 server:
-  port: 8086
+  port: 8098
 eureka:
   client:
     serviceUrl:
@@ -97,3 +72,31 @@ management:
   contextPath: /eureka
 
 
+---
+spring:
+  profiles: homolog
+  application:
+    name: daemon
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: CONCENTRADOR_ANS
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+server:
+  port: 8098
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://35.162.116.175:8761/eureka/
+  datacenter: cloud
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka

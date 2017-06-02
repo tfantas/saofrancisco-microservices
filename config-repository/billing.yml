@@ -4,7 +4,7 @@ spring:
     name: billing
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: CONTRATO
+    username: FATURAMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     tomcat:
@@ -18,6 +18,18 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: billing.audit
+          contentType: application/json
+        worksBillingAudit:
+          binder: rabbit
+          destination: billing.audit
+          contentType: application/json
+          group: billingService
 server:
   port: 8089
 eureka:
@@ -39,7 +51,7 @@ spring:
     name: billing
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: CONTRATO
+    username: FATURAMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     tomcat:
@@ -53,6 +65,18 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: billing.audit
+          contentType: application/json
+        worksBillingAudit:
+          binder: rabbit
+          destination: billing.audit
+          contentType: application/json
+          group: billingService
 server:
   port: 8089
 eureka:
@@ -73,7 +97,7 @@ spring:
     name: billing
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: CONTRATO
+    username: FATURAMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     tomcat:

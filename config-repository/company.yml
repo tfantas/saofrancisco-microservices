@@ -109,7 +109,6 @@ spring:
           binder: rabbit
           destination: company.audit
           contentType: application/json
-          group: companyService
         worksAddressAudit:
           binder: rabbit
           destination: address.audit

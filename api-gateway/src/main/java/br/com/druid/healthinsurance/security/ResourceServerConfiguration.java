@@ -64,7 +64,8 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
         http
             .csrf().disable().authorizeRequests()
             .antMatchers(HttpMethod.OPTIONS, "/**").permitAll()
-            .antMatchers("/services/oauth-server/**", "/eureka/**", "/services/access-control/user/regenerateConfirmation/**", "/services/access-control/user/registrationConfirm/**").permitAll()
+                .antMatchers("/services/oauth-server/**", "/eureka/**", "/services/access-control/user/regenerateConfirmation/**",
+                        "/services/access-control/user/registrationConfirm/**", "/services/access-control/user/changePassword/**").permitAll()
 
                 .antMatchers(HttpMethod.GET, "/services/access-control/functionality/names/**").authenticated()
 
