@@ -94,7 +94,7 @@ management:
 
 ---
 spring:
-  profiles: homolog
+  profiles: homologSF
   application:
     name: message
   datasource:
@@ -117,7 +117,7 @@ spring:
           validation:
             mode: none
   rabbitmq:
-    host: 192.168.112.13
+    host: vm-linux-higia-001
   cloud:
     stream:
       bindings:
@@ -131,8 +131,8 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.112.13:8761/eureka/
-  datacenter: cloud
+      defaultZone: http://vm-linux-higia-001:8761/eureka/,http://vm-linux-higia-002:8761/eureka/,http://vm-linux-higia-003:8761/eureka/
+  datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info
     healthCheckUrlPath: /eureka/health

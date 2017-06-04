@@ -96,10 +96,10 @@ eureka:
   instance:
     statusPageUrlPath: /eureka/info
     healthCheckUrlPath: /eureka/health
-  datacenter: cloud
   client:
     serviceUrl:
       defaultZone: http://vm-linux-higia-001:8761/eureka/,http://vm-linux-higia-002:8761/eureka/,http://vm-linux-higia-003:8761/eureka/
+  datacenter: saofrancisco-homolog
 ribbon:
   ConnectTimeout: 30000
   ReadTimeout: 30000

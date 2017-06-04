@@ -96,4 +96,56 @@ eureka:
 management:
   contextPath: /eureka
 
+---
+spring:
+  profiles: homologSF
+  application:
+    name: document
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: documento
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  rabbitmq:
+    host: vm-linux-higia-001	
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: document.audit
+          contentType: application/json
+        worksDocumentAudit:
+          binder: rabbit
+          destination: document.audit
+          contentType: application/json
+          group: documentService
+server:
+  port: 8086
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://vm-linux-higia-001:8761/eureka/,http://vm-linux-higia-002:8761/eureka/,http://vm-linux-higia-003:8761/eureka/
+  datacenter: saofrancisco-homolog
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
+
+
 

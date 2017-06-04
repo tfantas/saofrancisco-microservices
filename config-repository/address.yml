@@ -104,7 +104,7 @@ management:
 
 ---
 spring:
-  profiles: homolog
+  profiles: homologSF
   application:
     name: address
   datasource:
@@ -118,7 +118,7 @@ spring:
       minIdle: 1
       initialSize: 1	
   rabbitmq:
-    host: 129.150.65.116
+    host: vm-linux-higia-001
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -137,8 +137,8 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://35.166.252.70:8761/eureka/
-  datacenter: cloud
+      defaultZone: http://vm-linux-higia-001:8761/eureka/,http://vm-linux-higia-002:8761/eureka/,http://vm-linux-higia-003:8761/eureka/
+  datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info
     healthCheckUrlPath: /eureka/health

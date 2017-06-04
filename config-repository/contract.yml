@@ -138,7 +138,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: 129.150.65.116
+    host: vm-linux-higia-001
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -157,8 +157,8 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://35.162.116.175:8761/eureka/
-  datacenter: cloud
+      defaultZone: http://vm-linux-higia-001:8761/eureka/,http://vm-linux-higia-002:8761/eureka/,http://vm-linux-higia-003:8761/eureka/
+  datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info
     healthCheckUrlPath: /eureka/health
