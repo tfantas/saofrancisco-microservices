@@ -39,7 +39,7 @@ spring:
           destination: beneficiary.audit
           contentType: application/json
           group: beneficiaryService 
-	worksBeneficiaryEvents:
+        worksBeneficiaryEvents:
           binder: rabbit
           destination: beneficiary.events
           contentType: application/json
