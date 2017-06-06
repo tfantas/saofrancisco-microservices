@@ -40,8 +40,8 @@ spring:
           contentType: application/json
           group: beneficiaryService 
 	worksBeneficiaryEvents:
-	  binder: rabbit
-	  destination: beneficiary.events
+          binder: rabbit
+          destination: beneficiary.events
           contentType: application/json
 server:
   port: 8095
