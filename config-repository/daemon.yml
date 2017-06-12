@@ -55,6 +55,16 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  rabbitmq:
+    host: 129.150.65.116
+  cloud:
+    stream:
+      bindings:
+        worksBeneficiaryEvents:
+          binder: rabbit
+          destination: beneficiary.events
+          contentType: application/json
+          group: sib.daemon
 server:
   port: 8098
 eureka:
@@ -85,6 +95,16 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
+  rabbitmq:
+    host: 129.150.65.116
+  cloud:
+    stream:
+      bindings:
+        worksBeneficiaryEvents:
+          binder: rabbit
+          destination: beneficiary.events
+          contentType: application/json
+          group: sib.daemon      
 server:
   port: 8098
 eureka:
