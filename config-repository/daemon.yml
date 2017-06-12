@@ -15,8 +15,6 @@ spring:
       hibernate:
         show_sql: true
         format_sql: true
-  rabbitmq:
-    host: 129.150.65.116
   cloud:
     stream:
       bindings:
