@@ -206,7 +206,6 @@ access-control:
     expiration:
       days: 7
 
---profile local + banco do SF
 ---
 spring:
   profiles: DSV_BD_SF

@@ -119,7 +119,6 @@ hystrix:
             timeoutInMilliseconds: 30000
 
 
---profile local + banco do SF
 ---
 spring:
   profiles: DSV_BD_SF
