@@ -41,3 +41,16 @@ eureka:
     serviceUrl:
       defaultZone: http://vm-linux-higia-001:8761/eureka/,http://vm-linux-higia-002:8761/eureka/,http://vm-linux-higia-003:8761/eureka/ 
 
+
+--profile local + banco do SF
+---
+spring:
+  profiles: DSV_BD_SF
+  application:
+    name: service-discovery   
+server:
+  port: 8761
+eureka:
+  client:
+    registerWithEureka: false
+    fetchRegistry: false

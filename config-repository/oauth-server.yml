@@ -143,3 +143,54 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
+
+
+--profile local + banco do SF
+---
+spring:
+  profiles: DSV_BD_SF
+  application:
+    name: oauth-server
+  datasource:
+    url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv
+    username: CONTROLE_ACESSO
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    tomcat:
+      maxActive: 5  
+      maxIdle: 2
+      minIdle: 1
+      initialSize: 1  
+  rabbitmq:
+    host: 129.150.65.116
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
+
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: accessControl.audit
+          contentType: application/json
+server:
+  port: 9091
+  context-path: /
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  datacenter: cloud
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
