@@ -149,7 +149,7 @@ spring:
       password: Q1w2e3r4!
       protocol: smtps
   datasource:
-    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv
     username: CONTROLE_ACESSO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -201,7 +201,7 @@ feign:
     enabled: true
 access-control:
   app:
-    url: http://saofrancisco.druid.com.br/preview/2/public/dev/#!
+    url: http://192.168.112.13/public/dev/#!
   token:
     expiration:
       days: 7

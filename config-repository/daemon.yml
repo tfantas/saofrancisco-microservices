@@ -79,11 +79,11 @@ management:
 
 ---
 spring:
-  profiles: homolog
+  profiles: homologSF
   application:
     name: daemon
   datasource:
-    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv
     username: CONCENTRADOR_ANS
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -94,7 +94,7 @@ spring:
         show_sql: true
         format_sql: true
   rabbitmq:
-    host: 129.150.65.116
+    host: vm-linux-higia-001
   cloud:
     stream:
       bindings:
@@ -108,7 +108,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://35.162.116.175:8761/eureka/
+      defaultZone: http://192.168.112.13:8761/eureka/
   datacenter: cloud
   instance:
     statusPageUrlPath: /eureka/info

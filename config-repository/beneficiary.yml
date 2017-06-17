@@ -145,7 +145,7 @@ spring:
   application:
     name: beneficiary
   datasource:
-    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv
     username: BENEFICIARIO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
