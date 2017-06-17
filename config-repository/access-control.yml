@@ -205,3 +205,76 @@ access-control:
   token:
     expiration:
       days: 7
+
+--profile local + banco do SF
+---
+spring:
+  profiles: DSV_BD_SF
+  application:
+    name: access-control
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: devopts@druid.com.br
+    password: Q1w2e3r4!
+    protocol: smtps
+  datasource:
+    url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv
+    username: CONTROLE_ACESSO
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  rabbitmq:
+    host: 129.150.65.116
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: accessControl.audit
+          contentType: application/json
+server:
+  port: 8085
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  datacenter: cloud
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
+access-control:
+  app:
+    url: http://localhost/public/dev/#!
+  token:
+    expiration:
+      days: 7
