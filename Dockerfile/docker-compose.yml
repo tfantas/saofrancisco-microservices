@@ -1,0 +1,155 @@
+version: '3'
+services:
+  service-discovery:
+    image: "druidrio/service-discovery"
+    ports:
+      - "8761:8761"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  api-gateway:
+    image: "druidrio/api-gateway"
+    ports:
+      - "9090:9090"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  backoffice-web:
+    image: "druidrio/sf-nginx"
+    ports:
+      - "80:80"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+  access-control-service:
+    image: "druidrio/access-control-service"
+    ports:
+      - "9091:9091"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  oauth-server:
+    image: "druidrio/oauth-server"
+    ports:
+      - "8085:8085"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  company-service:
+    image: "druidrio/company-service"
+    ports:
+      - "8084:8084"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  beneficiary-service:
+    image: "druidrio/beneficiary-service"
+    ports:
+      - "8095:8095"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  contract-service:
+    image: "druidrio/contract-service"
+    ports:
+      - "8088:8088"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  billing-service:
+    image: "druidrio/billing-service"
+    ports:
+      - "8089:8089"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  document-service:
+    image: "druidrio/document-service"
+    ports:
+      - "8086:8086"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  message-service:
+    image: "druidrio/message-service"
+    ports:
+      - "8090:8090"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  price-service:
+    image: "druidrio/price-service"
+    ports:
+      - "8091:8091"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
+  address-service:
+    image: "druidrio/address-service"
+    ports:
+      - "8087:8087"
+    network_mode: "host"
+    logging:
+      driver: "gelf"
+      options:
+        gelf-address: "udp://vm-linux-higia-004:12222"
+    environment:
+      - SPRING_PROFILES_ACTIVE=homologSF
+      - JAVA_OPTS=-Xmx200m
