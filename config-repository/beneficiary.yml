@@ -112,6 +112,10 @@ spring:
           destination: beneficiary.audit
           contentType: application/json
           group: beneficiaryService
+        worksBeneficiaryEvents:
+          binder: rabbit
+          destination: beneficiary.events
+          contentType: application/json
 server:
   port: 8095
 eureka:
@@ -178,6 +182,10 @@ spring:
           destination: beneficiary.audit
           contentType: application/json
           group: beneficiaryService
+        worksBeneficiaryEvents:
+          binder: rabbit
+          destination: beneficiary.events
+          contentType: application/json
 server:
   port: 8095
 eureka:
