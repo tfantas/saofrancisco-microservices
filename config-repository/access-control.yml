@@ -181,7 +181,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://vm-linux-higia-001:8761/eureka/,http://vm-linux-higia-002:8761/eureka/,http://vm-linux-higia-003:8761/eureka/
+      defaultZone: http://vm-linux-higia-001:8761/eureka/
   datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info
