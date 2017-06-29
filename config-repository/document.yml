@@ -102,7 +102,7 @@ spring:
   application:
     name: document
   datasource:
-    url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv
+    url: jdbc:oracle:thin:@//10.31.105.158:1521/higiadsv
     username: documento
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -139,7 +139,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://vm-linux-higia-001:8761/eureka/,http://vm-linux-higia-002:8761/eureka/,http://vm-linux-higia-003:8761/eureka/
+      defaultZone: http://vm-linux-higia-001:8761/eureka/
   datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info

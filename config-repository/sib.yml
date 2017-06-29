@@ -63,7 +63,7 @@ spring:
   application:
     name: sib
   datasource:
-    url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv
+    url: jdbc:oracle:thin:@//10.31.105.158:1521/higiadsv
     username: CONCENTRADOR_ANS
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -78,8 +78,8 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.112.13:8761/eureka/
-  datacenter: cloud
+      defaultZone: http://vm-linux-higia-001:8761/eureka/
+  datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info
     healthCheckUrlPath: /eureka/health
