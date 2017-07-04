@@ -5,7 +5,7 @@ spring:
     name: message
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: MENSAGEM
+    username: USER_MENSAGEM
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
@@ -52,7 +52,7 @@ spring:
     name: message
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: MENSAGEM
+    username: USER_MENSAGEM
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:

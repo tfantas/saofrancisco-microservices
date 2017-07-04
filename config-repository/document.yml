@@ -4,7 +4,7 @@ spring:
     name: document
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: documento
+    username: USER_DOCUMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
@@ -52,7 +52,7 @@ spring:
     name: document
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: documento
+    username: USER_DOCUMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
