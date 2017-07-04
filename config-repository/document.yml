@@ -102,7 +102,7 @@ spring:
   application:
     name: document
   datasource:
-    url: jdbc:oracle:thin:@//10.31.105.158:1521/higiadsv
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
     username: documento
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -111,7 +111,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: vm-linux-higia-001	
+    host: rabbit-homolog	
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -139,7 +139,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://vm-linux-higia-001:8761/eureka/
+      defaultZone: http://service-discovery-homolog:8761/eureka/
   datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info

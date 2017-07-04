@@ -149,7 +149,7 @@ spring:
       password: Q1w2e3r4!
       protocol: smtps
   datasource:
-    url: jdbc:oracle:thin:@//10.31.105.158:1521/higiadsv
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
     username: CONTROLE_ACESSO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -158,7 +158,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: vm-linux-higia-001
+    host: rabbit-homolog
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -181,7 +181,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://vm-linux-higia-001:8761/eureka/
+      defaultZone: http://service-discovery-homolog:8761/eureka/
   datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info
@@ -201,7 +201,7 @@ feign:
     enabled: true
 access-control:
   app:
-    url: http://192.168.112.13/public/dev/#!
+    url: http://192.168.112.10/public/dev/#!
   token:
     expiration:
       days: 7

@@ -90,7 +90,7 @@ spring:
   application:
     name: imp
   datasource:
-    url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
     username: CONCENTRADOR_ANS
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -105,7 +105,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://192.168.112.13:8761/eureka/
+      defaultZone: http://service-discovery-homolog:8761/eureka/
   datacenter: cloud
   instance:
     statusPageUrlPath: /eureka/info

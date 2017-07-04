@@ -98,7 +98,7 @@ spring:
   application:
     name: message
   datasource:
-    url: jdbc:oracle:thin:@//10.31.105.158:1521/higiadsv
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
     username: MENSAGEM
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -106,6 +106,8 @@ spring:
       connection-test-query: SELECT 1 FROM DUAL
       minimum-idle: 1
       maximum-pool-size: 5
+  rabbitmq:
+    host: rabbit-homolog	
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -116,8 +118,6 @@ spring:
         persistence:
           validation:
             mode: none
-  rabbitmq:
-    host: vm-linux-higia-001
   cloud:
     stream:
       bindings:
@@ -131,7 +131,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://vm-linux-higia-001:8761/eureka/
+      defaultZone: http://service-discovery-homolog:8761/eureka/
   datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info

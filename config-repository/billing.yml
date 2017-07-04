@@ -96,7 +96,7 @@ spring:
   application:
     name: billing
   datasource:
-    url: jdbc:oracle:thin:@//10.31.105.158:1521/higiadsv
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
     username: FATURAMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
@@ -105,6 +105,8 @@ spring:
       maxIdle: 2
       minIdle: 1
       initialSize: 1	
+  rabbitmq:
+    host: rabbit-homolog
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -116,7 +118,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://vm-linux-higia-001:8761/eureka/
+      defaultZone: http://service-discovery-homolog:8761/eureka/
   datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info

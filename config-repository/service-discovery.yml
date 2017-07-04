@@ -39,7 +39,7 @@ eureka:
     registerWithEureka: false
     fetchRegistry: false
     serviceUrl:
-      defaultZone: http://vm-linux-higia-001:8761/eureka/ 
+      defaultZone: http://service-discovery-homolog:8761/eureka/ 
 
 ---
 spring:

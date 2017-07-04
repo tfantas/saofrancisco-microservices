@@ -62,10 +62,12 @@ spring:
   application:
     name: grace
   datasource:
-    url: jdbc:oracle:thin:@//10.31.105.158:1521/higiadsv
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
     username: contrato
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
+  rabbitmq:
+    host: rabbit-homolog	
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -78,7 +80,7 @@ eureka:
   client:
     serviceUrl:
     serviceUrl:
-      defaultZone: http://vm-linux-higia-001:8761/eureka/
+      defaultZone: http://service-discovery-homolog:8761/eureka/
   datacenter: saofrancisco-homolog
   instance:
     statusPageUrlPath: /eureka/info
