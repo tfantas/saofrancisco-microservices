@@ -44,6 +44,7 @@
         <string>backoffice-web</string>
         <string>saofrancisco-billing</string>
         <string>saofrancisco-contract</string>
+        <string>saofrancisco-card</string>
         <string>saofrancisco-price</string>
       </jobNames>
       <jobFilters/>
@@ -75,6 +76,7 @@
         <string>saofrancisco-company</string>
         <string>saofrancisco-config-server</string>
         <string>saofrancisco-contract</string>
+        <string>saofrancisco-card</string>
         <string>saofrancisco-document</string>
         <string>saofrancisco-message</string>
         <string>saofrancisco-oauth-server</string>
@@ -106,6 +108,7 @@
         <string>saofrancisco-beneficiary</string>
         <string>saofrancisco-company</string>
         <string>saofrancisco-contract</string>
+        <string>saofrancisco-card</string>
         <string>saofrancisco-document</string>
       </jobNames>
       <jobFilters/>
@@ -136,6 +139,7 @@
         <string>saofrancisco-billing</string>
         <string>saofrancisco-company</string>
         <string>saofrancisco-contract</string>
+        <string>saofrancisco-card</string>
         <string>saofrancisco-document</string>
         <string>saofrancisco-price</string>
         <string>saofrancisco-sib</string>
