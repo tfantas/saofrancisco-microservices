@@ -12,7 +12,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
 server:
   port: 8093
 eureka:
@@ -42,7 +42,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
 server:
   port: 8093
 eureka:
@@ -73,7 +73,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
 server:
   port: 8093
 eureka:

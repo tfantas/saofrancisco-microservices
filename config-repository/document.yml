@@ -18,7 +18,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
   cloud:
     stream:
       bindings:
@@ -66,7 +66,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:
@@ -117,7 +117,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:
