@@ -1,55 +1,36 @@
 ---
 spring:
   application:
-    name: beneficiary
+    name: card
   output:
     ansi:
       enabled: NEVER
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: BENEFICIARIO
+    username: CARTAO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    tomcat:
-      maxActive: 5	
-      maxIdle: 2
-      minIdle: 1
-      initialSize: 1
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
   rabbitmq:
-    host: 129.150.65.116
+    host: 129.150.65.116		
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
-<<<<<<< HEAD
         show_sql: true
-        format_sql: false
-=======
-        show_sql: true 
         format_sql: true
->>>>>>> 3a752b7aa1d6f87d57ebee78fafd6a58add9fee6
-      javax:
-        persistence:
-          validation:
-            mode: none
   cloud:
     stream:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: beneficiary.audit
-          contentType: application/json
-        worksBeneficiaryAudit:
-          binder: rabbit
-          destination: beneficiary.audit
-          contentType: application/json
-          group: beneficiaryService 
-        worksBeneficiaryEvents:
-          binder: rabbit
-          destination: beneficiary.events
+          destination: card.audit
           contentType: application/json
 server:
-  port: 8095
+  port: 8099
 eureka:
   client:
     serviceUrl:
@@ -75,54 +56,41 @@ logging:
   level:
     org.springframework.cloud.stream: DEBUG
 
+
 ---
 spring:
   profiles: dsv
   application:
-    name: beneficiary
+    name: card
   output:
     ansi:
       enabled: NEVER
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: USER_BENEFICIARIO
+    username: CARTAO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    tomcat:
-      maxActive: 5	
-      maxIdle: 2
-      minIdle: 1
-      initialSize: 1
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
   rabbitmq:
-    host: 129.150.65.116	
+    host: 129.150.65.116
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         show_sql: true
-        format_sql: false
-      javax:
-        persistence:
-          validation:
-            mode: none
+        format_sql: true
   cloud:
     stream:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: beneficiary.audit
-          contentType: application/json
-        worksBeneficiaryAudit:
-          binder: rabbit
-          destination: beneficiary.audit
-          contentType: application/json
-          group: beneficiaryService
-        worksBeneficiaryEvents:
-          binder: rabbit
-          destination: beneficiary.events
+          destination: card.audit
           contentType: application/json
 server:
-  port: 8095
+  port: 8099
 eureka:
   client:
     serviceUrl:
@@ -144,60 +112,43 @@ hystrix:
 feign:
   hystrix:
     enabled: true
-logging:
-  level:
-    org.springframework.cloud.stream: DEBUG
 
 ---
 spring:
-  profiles: homologSF
+  profiles: homolog
   application:
-    name: beneficiary
+    name: card
   datasource:
-    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
-    username: USER_BENEFICIARIO
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: CARTAO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-    tomcat:
-      maxActive: 5	
-      maxIdle: 2
-      minIdle: 1
-      initialSize: 1
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
   rabbitmq:
-    host: rabbit-homolog
+    host: 129.150.65.116
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         show_sql: true
-        format_sql: false
-      javax:
-        persistence:
-          validation:
-            mode: none
+        format_sql: true
   cloud:
     stream:
       bindings:
         worksAudit:
           binder: rabbit
-          destination: beneficiary.audit
-          contentType: application/json
-        worksBeneficiaryAudit:
-          binder: rabbit
-          destination: beneficiary.audit
-          contentType: application/json
-          group: beneficiaryService
-        worksBeneficiaryEvents:
-          binder: rabbit
-          destination: beneficiary.events
+          destination: card.audit
           contentType: application/json
 server:
-  port: 8095
+  port: 8099
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://service-discovery-homolog:8761/eureka/
-  datacenter: saofrancisco-homolog
+      defaultZone: http://35.162.116.175:8761/eureka/
+  datacenter: cloud
   instance:
     statusPageUrlPath: /eureka/info
     healthCheckUrlPath: /eureka/health
@@ -214,7 +165,4 @@ hystrix:
 feign:
   hystrix:
     enabled: true
-logging:
-  level:
-    org.springframework.cloud.stream: DEBUG
 

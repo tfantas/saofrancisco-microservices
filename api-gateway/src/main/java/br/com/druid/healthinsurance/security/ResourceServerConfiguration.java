@@ -57,7 +57,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
 		defaultTokenServices.setTokenStore(tokenStore());
 		return defaultTokenServices;
 	}
-	
+
 	@Override
 	public void configure(HttpSecurity http) throws Exception {
 		// @formatter:off
@@ -93,6 +93,12 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
             .antMatchers(HttpMethod.PATCH, "/services/contract/**").hasAuthority("CONTRACT_WRITE")
             .antMatchers(HttpMethod.DELETE, "/services/contract/**").hasAuthority("CONTRACT_WRITE")
 
+            .antMatchers(HttpMethod.GET, "/services/card/**").hasAnyAuthority("CARD_READ", "CARD_WRITE")
+            .antMatchers(HttpMethod.POST, "/services/card/**").hasAuthority("CARD_WRITE")
+            .antMatchers(HttpMethod.PUT, "/services/card/**").hasAuthority("CARD_WRITE")
+            .antMatchers(HttpMethod.PATCH, "/services/card/**").hasAuthority("CARD_WRITE")
+            .antMatchers(HttpMethod.DELETE, "/services/card/**").hasAuthority("CARD_WRITE")
+
             .antMatchers(HttpMethod.GET, "/services/address/**").hasAnyAuthority("ADDRESS_READ", "ADDRESS_WRITE")
             .antMatchers(HttpMethod.POST, "/services/address/**").hasAuthority("ADDRESS_WRITE")
             .antMatchers(HttpMethod.PUT, "/services/address/**").hasAuthority("ADDRESS_WRITE")
@@ -122,7 +128,7 @@ public class ResourceServerConfiguration extends ResourceServerConfigurerAdapter
             .antMatchers(HttpMethod.PUT, "/services/sib/**").hasAuthority("SIB_WRITE")
             .antMatchers(HttpMethod.PATCH, "/services/sib/**").hasAuthority("SIB_WRITE")
             .antMatchers(HttpMethod.DELETE, "/services/sib/**").hasAuthority("SIB_WRITE")
-            
+
             .anyRequest().authenticated();
 		// @formatter:on
 	}
