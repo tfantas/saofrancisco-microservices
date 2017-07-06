@@ -18,7 +18,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
   http:
     multipart:
       maxFileSize: 20MB
@@ -70,7 +70,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:
@@ -111,7 +111,7 @@ spring:
     name: document
   datasource:
     url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
-    username: documento
+    username: USER_DOCUMENTO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
@@ -125,7 +125,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:

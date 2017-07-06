@@ -21,7 +21,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
   cloud:
     stream:
       bindings:
@@ -81,7 +81,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
   cloud:
     stream:
       bindings:
@@ -109,7 +109,7 @@ spring:
     name: address
   datasource:
     url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
-    username: ENDERECO
+    username: USER_ENDERECO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     tomcat:
@@ -124,7 +124,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
   cloud:
     stream:
       bindings:

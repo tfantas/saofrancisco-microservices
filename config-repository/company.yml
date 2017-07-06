@@ -21,7 +21,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:
@@ -93,7 +93,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:
@@ -145,7 +145,7 @@ spring:
     name: company
   datasource:
     url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
-    username: EMPRESA
+    username: USER_EMPRESA
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
@@ -159,7 +159,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:

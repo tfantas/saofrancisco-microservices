@@ -21,8 +21,8 @@ spring:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
-        show_sql: true 
-        format_sql: true
+        show_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:
@@ -95,7 +95,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:
@@ -150,7 +150,7 @@ spring:
     name: beneficiary
   datasource:
     url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
-    username: BENEFICIARIO
+    username: USER_BENEFICIARIO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     tomcat:
@@ -165,7 +165,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
       javax:
         persistence:
           validation:

@@ -14,7 +14,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
   cloud:
     stream:
       bindings:
@@ -52,7 +52,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
   rabbitmq:
     host: 129.150.65.116
   cloud:
@@ -92,7 +92,7 @@ spring:
     properties:
       hibernate:
         show_sql: true
-        format_sql: true
+        format_sql: false
   rabbitmq:
     host: vm-linux-higia-001
   cloud:
