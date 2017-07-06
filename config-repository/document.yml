@@ -1,5 +1,9 @@
 ---
 spring:
+ http:
+    multipart:
+      maxFileSize: 20MB
+      maxRequestSize: 20MB
   application:
     name: document
   datasource:
@@ -47,6 +51,10 @@ management:
 
 ---
 spring:
+ http:
+    multipart:
+      maxFileSize: 20MB
+      maxRequestSize: 20MB
   profiles: dsv
   application:
     name: document
@@ -98,6 +106,10 @@ management:
 
 ---
 spring:
+ http:
+    multipart:
+      maxFileSize: 20MB
+      maxRequestSize: 20MB
   profiles: homologSF
   application:
     name: document
