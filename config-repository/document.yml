@@ -106,10 +106,6 @@ management:
 
 ---
 spring:
- http:
-    multipart:
-      maxFileSize: 20MB
-      maxRequestSize: 20MB
   profiles: homologSF
   application:
     name: document
