@@ -21,13 +21,8 @@ spring:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
-<<<<<<< HEAD
         show_sql: true
         format_sql: false
-=======
-        show_sql: true 
-        format_sql: true
->>>>>>> 3a752b7aa1d6f87d57ebee78fafd6a58add9fee6
       javax:
         persistence:
           validation:

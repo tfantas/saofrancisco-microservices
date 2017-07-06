@@ -18,15 +18,11 @@ spring:
     properties:
       hibernate:
         show_sql: true
-<<<<<<< HEAD
         format_sql: false
-=======
-        format_sql: true
   http:
     multipart:
       maxFileSize: 20MB
       maxRequestSize: 20MB
->>>>>>> 3a752b7aa1d6f87d57ebee78fafd6a58add9fee6
   cloud:
     stream:
       bindings:
