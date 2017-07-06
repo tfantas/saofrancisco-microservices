@@ -138,7 +138,7 @@ spring:
     name: contract
   datasource:
     url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
-    username: CONTRATO
+    username: USER_CONTRATO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:

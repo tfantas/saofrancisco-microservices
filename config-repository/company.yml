@@ -145,7 +145,7 @@ spring:
     name: company
   datasource:
     url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
-    username: EMPRESA
+    username: USER_EMPRESA
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
