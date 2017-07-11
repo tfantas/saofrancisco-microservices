@@ -62,16 +62,10 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 30000
 feign:
   hystrix:
     enabled: true
-    command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
@@ -141,16 +135,10 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 30000
 feign:
   hystrix:
     enabled: true
-    command:
-    default:
-      execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 60000
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
