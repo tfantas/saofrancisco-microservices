@@ -229,7 +229,7 @@ spring:
       minIdle: 1
       initialSize: 1
   rabbitmq:
-    host: rabbit-homolog
+    host: 129.150.65.116
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
