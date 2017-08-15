@@ -82,7 +82,7 @@ spring:
     username: USER_BENEFICIARIO
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
-     hikari:
+    hikari:
       connection-test-query: SELECT 1 FROM DUAL
       minimum-idle: 1
       maximum-pool-size: 5	
