@@ -52,3 +52,18 @@ eureka:
   client:
     registerWithEureka: false
     fetchRegistry: false
+
+---
+spring:
+  profiles: teste_sf
+  application:
+    name: service-discovery   
+server:
+  port: 8761
+eureka:
+  datacenter: saofrancisco-homolog
+  client:
+    registerWithEureka: false
+    fetchRegistry: false
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

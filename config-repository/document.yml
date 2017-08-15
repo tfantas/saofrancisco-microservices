@@ -130,6 +130,10 @@ spring:
         persistence:
           validation:
             mode: none
+  http:
+    multipart:
+      maxFileSize: 20MB
+      maxRequestSize: 20MB
   cloud:
     stream:
       bindings:
