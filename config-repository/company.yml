@@ -119,7 +119,7 @@ server:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://35.166.252.70:8761/eureka/,http://54.201.71.226:8761/eureka/
+      defaultZone: http://35.166.252.70:8761/eureka/
   datacenter: cloud
   instance:
     statusPageUrlPath: /eureka/info
