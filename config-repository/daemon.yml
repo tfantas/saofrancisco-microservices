@@ -2,11 +2,18 @@
 spring:
   application:
     name: daemon
+  output:
+    ansi:
+      enabled: NEVER
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
     username: CONCENTRADOR_ANS
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
   rabbitmq:
     host: 129.150.65.116
   jpa:
@@ -15,6 +22,10 @@ spring:
       hibernate:
         show_sql: true
         format_sql: false
+      javax:
+        persistence:
+          validation:
+            mode: none
   cloud:
     stream:
       bindings:
