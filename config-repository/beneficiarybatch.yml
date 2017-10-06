@@ -1,0 +1,189 @@
+---
+spring:
+  application:
+    name: beneficiarybatch
+  output:
+    ansi:
+      enabled: NEVER
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: USER_BENEFICIARYBATCH
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  rabbitmq:
+    host: 129.150.65.116		
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: beneficiarybatch.audit
+          contentType: application/json
+        worksBeneficiaryBatchAudit:
+          binder: rabbit
+          destination: beneficiarybatch.audit
+          contentType: application/json
+          group: beneficiarybatchService
+server:
+  port: 8088
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  datacenter: cloud
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
+
+
+---
+spring:
+  profiles: dsv
+  application:
+    name: beneficiarybatch
+  output:
+    ansi:
+      enabled: NEVER
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: USER_BENEFICIARYBATCH
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  rabbitmq:
+    host: 129.150.65.116
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: beneficiarybatch.audit
+          contentType: application/json
+        worksBeneficiaryBatchAudit:
+          binder: rabbit
+          destination: beneficiarybatch.audit
+          contentType: application/json
+          group: beneficiarybatchService
+server:
+  port: 8088
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://35.166.252.70:8761/eureka/
+  datacenter: cloud
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+
+---
+spring:
+  profiles: homologSF
+  application:
+    name: beneficiarybatch
+  datasource:
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
+    username: USER_BENEFICIARYBATCH
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 5
+      maximum-pool-size: 10
+  rabbitmq:
+    host: rabbit-homolog
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: beneficiarybatch.audit
+          contentType: application/json
+server:
+  port: 8088
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-discovery-homolog:8761/eureka/
+  datacenter: saofrancisco-homolog
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
