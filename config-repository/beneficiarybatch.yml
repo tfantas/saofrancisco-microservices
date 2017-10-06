@@ -39,7 +39,7 @@ spring:
           contentType: application/json
           group: beneficiarybatchService
 server:
-  port: 8088
+  port: 8100
 eureka:
   client:
     serviceUrl:
@@ -108,7 +108,7 @@ spring:
           contentType: application/json
           group: beneficiarybatchService
 server:
-  port: 8088
+  port: 8100
 eureka:
   client:
     serviceUrl:
@@ -165,7 +165,7 @@ spring:
           destination: beneficiarybatch.audit
           contentType: application/json
 server:
-  port: 8088
+  port: 8100
 eureka:
   client:
     serviceUrl:
