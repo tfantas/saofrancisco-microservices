@@ -60,7 +60,7 @@ hystrix:
             timeoutInMilliseconds: 30000
 feign:
   hystrix:
-    enabled: true
+    enabled: false
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
