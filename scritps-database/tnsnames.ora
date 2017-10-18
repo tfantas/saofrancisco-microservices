@@ -1,0 +1,62 @@
+HIGIA_DEV = (description=
+   (address_list=
+     (address = (protocol = TCP)(host = sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com)(port = 1521))
+   )
+ (connect_data =
+   (service_name=ORCL)
+ )
+)
+
+HIGIA_QA = (description=
+   (address_list=
+     (address = (protocol = TCP)(host = orcl.chapsiz2x54b.us-west-2.rds.amazonaws.com)(port = 1521))
+   )
+ (connect_data =
+   (service_name=ORCL)
+ )
+)
+
+ORCL =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 129.150.65.191)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = ORCL.a433004.oraclecloud.internal)
+    )
+  )
+  
+SFSS_DSV =
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 172.30.100.212)(PORT = 1521))
+    (CONNECT_DATA =
+      (SERVER = DEDICATED)
+      (SERVICE_NAME = sfp01)
+    )
+  )
+ 
+ODONTO_DSV=
+  (DESCRIPTION =
+    (ADDRESS = (PROTOCOL = TCP)(HOST = 172.30.100.210)(PORT = 1521))
+    (CONNECT_DATA =
+       (SERVER = DEDICATED)
+       (SERVICE_NAME = ododsv)
+    )
+  )
+  
+HIGIA_HML = (description=
+   (address_list=
+     (address = (protocol = TCP)(host = 10.10.0.70)(port = 1521))
+   )
+ (connect_data =
+   (service_name=higiadsv)
+ )
+)
+
+HIGIA_HML_OLD = (description=
+   (address_list=
+     (address = (protocol = TCP)(host = 129.191.26.26)(port = 1521))
+   )
+ (connect_data =
+   (service_name=higiadsv)
+ )
+)
