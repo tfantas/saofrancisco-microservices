@@ -7,7 +7,7 @@ spring:
       enabled: NEVER
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: USER_BENEFICIARYBATCH
+    username: USER_CONTRACTPRICEBATCH
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
@@ -76,7 +76,7 @@ spring:
       enabled: NEVER
   datasource:
     url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-    username: USER_BENEFICIARYBATCH
+    username: USER_CONTRACTPRICEBATCH
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
@@ -138,7 +138,7 @@ spring:
     name: contractpricebatch
   datasource:
     url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
-    username: USER_BENEFICIARYBATCH
+    username: USER_CONTRACTPRICEBATCH
     password: druidq1w2e3
     driver-class-name: oracle.jdbc.OracleDriver
     hikari:
