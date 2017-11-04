@@ -59,12 +59,11 @@ hystrix:
   command:
     default:
       execution:
-        isolation:
-          thread:
-            timeoutInMilliseconds: 99999
+          timeout:
+            enabled: false
 feign:
   hystrix:
-    enabled: true
+    enabled: false
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
