@@ -6,8 +6,8 @@ server:
   port: 9091
 zuul:
   host:
-    connect-timeout-millis: 90000
-    socket-timeout-millis: 90000
+    connect-timeout-millis: 99999
+    socket-timeout-millis: 99999
   sensitiveHeaders:
   prefix: /services
   routes:
@@ -26,8 +26,8 @@ eureka:
     serviceUrl:
       defaultZone: http://localhost:8761/eureka/
 ribbon:
-  ConnectTimeout: 90000
-  ReadTimeout: 90000
+  ConnectTimeout: 99999
+  ReadTimeout: 99999
 security:
   basic:
     enabled: false
@@ -41,7 +41,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 90000  
+            timeoutInMilliseconds: 99999  
 
 ---
 spring:
