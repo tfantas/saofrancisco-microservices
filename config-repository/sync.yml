@@ -1,0 +1,60 @@
+---
+spring:
+
+  rabbitmq:
+      host: 129.150.65.116
+
+  datasource:
+      url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+      username: SINCRONISMO
+      password: druidq1w2e3
+      driver-class-name: oracle.jdbc.OracleDriver
+      hikari:
+        connection-test-query: SELECT 1 FROM DUAL
+        minimum-idle: 1
+        maximum-pool-size: 5
+
+  cloud:
+    stream:
+      bindings:
+        worksSynch:
+          binder: rabbit
+          destination: sys.synch
+          contentType: application/json
+        worksCompanyAudit:
+          binder: rabbit
+          destination: company.audit
+          contentType: application/json
+          group: synch
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/
+  datacenter: cloud
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 60000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
+
+sync:
+  sis:
+    read:
+      schedulingCron: "0-59 * * * * *"
+      sourceNames:
+        - SIS_SAUDE
+        - SIS_ODONTO
