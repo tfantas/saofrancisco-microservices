@@ -33,7 +33,7 @@ spring:
           binder: rabbit
           destination: beneficiary.events
           contentType: application/json
-          group: cardService
+          group: cardService2
 server:
   port: 8099
 eureka:
@@ -94,6 +94,11 @@ spring:
           binder: rabbit
           destination: card.audit
           contentType: application/json
+        worksBeneficiaryEvents:
+          binder: rabbit
+          destination: beneficiary.events
+          contentType: application/json
+          group: cardService2
 server:
   port: 8099
 eureka:
@@ -147,6 +152,11 @@ spring:
           binder: rabbit
           destination: card.audit
           contentType: application/json
+        worksBeneficiaryEvents:
+          binder: rabbit
+          destination: beneficiary.events
+          contentType: application/json
+          group: cardService2
 server:
   port: 8099
 eureka:
