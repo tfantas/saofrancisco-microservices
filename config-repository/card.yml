@@ -181,3 +181,68 @@ feign:
   hystrix:
     enabled: true
 
+
+---
+spring:
+  profiles: homologSF
+  application:
+    name: card
+  datasource:
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
+    username: USER_BENEFICIARIO
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 5
+      maximum-pool-size: 10 
+  rabbitmq:
+    host: rabbit-homolog
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+      javax:
+        persistence:
+          validation:
+            mode: none
+  cloud:
+    stream:
+      bindings:
+        worksAudit:
+          binder: rabbit
+          destination: card.audit
+          contentType: application/json
+        worksBeneficiaryEvents:
+          binder: rabbit
+          destination: beneficiary.events
+          contentType: application/json
+          group: cardService2
+server:
+  port: 8099
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://192.168.112.10:8761/eureka/
+  datacenter: saofrancisco-homolog
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
