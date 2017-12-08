@@ -73,6 +73,12 @@ spring:
   profiles: dsv
   application:
     name: card
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: devopts@druid.com.br
+    password: Q1w2e3r4!
+    protocol: smtps
   output:
     ansi:
       enabled: NEVER
