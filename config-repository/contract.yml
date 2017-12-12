@@ -38,6 +38,10 @@ spring:
           destination: contract.audit
           contentType: application/json
           group: contractService
+        worksContractEvents:
+          binder: rabbit
+          destination: contract.events
+          contentType: application/json
 server:
   port: 8088
 eureka:
