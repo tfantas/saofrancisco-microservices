@@ -42,6 +42,11 @@ spring:
           binder: rabbit
           destination: beneficiary.events
           contentType: application/json
+        worksContractEvents:
+          binder: rabbit
+          destination: contract.events
+          contentType: application/json
+          group: beneficiaryService
 server:
   port: 8095
 eureka:
@@ -114,6 +119,11 @@ spring:
           binder: rabbit
           destination: beneficiary.events
           contentType: application/json
+        worksContractEvents:
+          binder: rabbit
+          destination: contract.events
+          contentType: application/json
+          group: beneficiaryService
 server:
   port: 8095
 eureka:
