@@ -50,7 +50,7 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 30000
+            timeoutInMilliseconds: 99999
 feign:
   hystrix:
     enabled: true

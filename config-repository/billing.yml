@@ -41,6 +41,20 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
 
 
 ---
@@ -87,6 +101,20 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
 
 ---
 spring:
@@ -122,5 +150,19 @@ eureka:
     healthCheckUrlPath: /eureka/health
 management:
   contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
 
 
