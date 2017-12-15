@@ -1,35 +1,34 @@
 ---
 spring:
-
   rabbitmq:
       host: 129.150.65.116
-
-  datasource:
-      url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
-      username: SINCRONISMO
-      password: druidq1w2e3
-      driver-class-name: oracle.jdbc.OracleDriver
-      hikari:
-        connection-test-query: SELECT 1 FROM DUAL
-        minimum-idle: 1
-        maximum-pool-size: 5
 
   cloud:
     stream:
       bindings:
-        worksSynch:
+        worksSync:
           binder: rabbit
-          destination: sys.synch
+          destination: sincronismo
           contentType: application/json
+          group: syncService
         worksCompanyAudit:
           binder: rabbit
           destination: company.audit
           contentType: application/json
           group: synch
+sf:
+  client:
+    clientId: pei_angular
+    clientSecret: druidq1w2e3
+    accessTokenUri: http://35.166.252.70:9091/oauth/token
+    scope: write
+    username: thiago.antas@druid.com.br
+    password: 1234
+
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://localhost:8761/eureka/
+      defaultZone: http://35.166.252.70:8761/eureka/
   datacenter: cloud
   instance:
     statusPageUrlPath: /eureka/info
@@ -50,11 +49,9 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
-
-sync:
-  sis:
-    read:
-      schedulingCron: "0-59 * * * * *"
-      sourceNames:
-        - SIS_SAUDE
-        - SIS_ODONTO
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type: TRACE
+    br.com.druid.healthinsurance: DEBUG
+    #org.springframework.http: TRACE
+    #org.apache.http: TRACE
