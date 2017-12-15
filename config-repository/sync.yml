@@ -1,12 +1,12 @@
 ---
 spring:
   application:
-      name: sync
+    name: sync
     output:
       ansi:
         enabled: NEVER
   rabbitmq:
-      host: 129.150.65.116
+    host: 129.150.65.116
 
   jpa:
     properties:
@@ -118,7 +118,7 @@ sf:
     scope: write
     username: thiago.antas@druid.com.br
     password: 1234
-    
+
 eureka:
   client:
     serviceUrl:
