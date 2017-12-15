@@ -92,6 +92,33 @@ spring:
         persistence:
           validation:
             mode: none
+
+  cloud:
+      stream:
+        bindings:
+          worksSync:
+            binder: rabbit
+            destination: sincronismo
+            contentType: application/json
+            group: syncService
+          worksCompanyAudit:
+            binder: rabbit
+            destination: company.audit
+            contentType: application/json
+            group: synch
+
+server:
+  port: 8092
+
+sf:
+  client:
+    clientId: pei_angular
+    clientSecret: druidq1w2e3
+    accessTokenUri: http://35.166.252.70:9091/oauth/token
+    scope: write
+    username: thiago.antas@druid.com.br
+    password: 1234
+    
 eureka:
   client:
     serviceUrl:
