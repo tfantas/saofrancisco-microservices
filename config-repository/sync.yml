@@ -122,8 +122,8 @@ spring:
             spring:
               rabbitmq:
                 host: 192.168.112.15
-                username: sincronismo
-                password: sincronismo
+                username: guest
+                password: guest
         services_rabbit:
           type: rabbit
           environment:
