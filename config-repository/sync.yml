@@ -15,7 +15,6 @@ spring:
           binder: rabbit
           destination: sincronismo-out
           contentType: application/json
-          group: syncService
         worksCompanyAudit:
           binder: rabbit
           destination: company.audit
