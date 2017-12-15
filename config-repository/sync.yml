@@ -21,9 +21,14 @@ spring:
   cloud:
     stream:
       bindings:
-        worksSync:
+        worksSyncIn:
           binder: rabbit
-          destination: sincronismo
+          destination: sincronismo-in
+          contentType: application/json
+          group: syncService
+        worksSyncOut:
+          binder: rabbit
+          destination: sincronismo-out
           contentType: application/json
           group: syncService
         worksCompanyAudit:
@@ -94,18 +99,23 @@ spring:
             mode: none
 
   cloud:
-      stream:
-        bindings:
-          worksSync:
-            binder: rabbit
-            destination: sincronismo
-            contentType: application/json
-            group: syncService
-          worksCompanyAudit:
-            binder: rabbit
-            destination: company.audit
-            contentType: application/json
-            group: synch
+    stream:
+      bindings:
+        worksSyncIn:
+          binder: rabbit
+          destination: sincronismo-in
+          contentType: application/json
+          group: syncService
+        worksSyncOut:
+          binder: rabbit
+          destination: sincronismo-out
+          contentType: application/json
+          group: syncService
+        worksCompanyAudit:
+          binder: rabbit
+          destination: company.audit
+          contentType: application/json
+          group: synch
 
 server:
   port: 8092
