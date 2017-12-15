@@ -6,11 +6,16 @@ spring:
   cloud:
     stream:
       bindings:
-        worksSync:
+        worksSyncIn:
           binder: rabbit
           destination: sincronismo
           contentType: application/json
-          group: syncService
+          group: syncService.in
+        worksSyncOut:
+          binder: rabbit
+          destination: sincronismo
+          contentType: application/json
+          group: syncService.out
         worksCompanyAudit:
           binder: rabbit
           destination: company.audit
