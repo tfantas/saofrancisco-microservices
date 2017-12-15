@@ -8,14 +8,14 @@ spring:
       bindings:
         worksSyncIn:
           binder: rabbit
-          destination: sincronismo
+          destination: sincronismo-in
           contentType: application/json
-          group: syncService.in
+          group: syncService
         worksSyncOut:
           binder: rabbit
-          destination: sincronismo
+          destination: sincronismo-out
           contentType: application/json
-          group: syncService.out
+          group: syncService
         worksCompanyAudit:
           binder: rabbit
           destination: company.audit
