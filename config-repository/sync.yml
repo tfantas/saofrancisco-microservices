@@ -5,8 +5,8 @@ spring:
     output:
       ansi:
         enabled: NEVER
-  rabbitmq:
-    host: 129.150.65.116
+  #rabbitmq:
+  #  host: 129.150.65.116
 
   jpa:
     properties:
@@ -122,8 +122,8 @@ spring:
             spring:
               rabbitmq:
                 host: 192.168.112.15
-                username: guest
-                password: guest
+                username: sincronismo
+                password: sincronismo
         services_rabbit:
           type: rabbit
           environment:
@@ -165,3 +165,10 @@ hystrix:
 feign:
   hystrix:
     enabled: true
+logging:
+  level:
+    org.springframework.cloud.stream: DEBUG
+    org.hibernate.SQL: DEBUG
+    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
+    org.hibernate.type: TRACE
+    br.com.druid.healthinsurance: DEBUG
