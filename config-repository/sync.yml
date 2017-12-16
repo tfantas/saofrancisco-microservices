@@ -143,7 +143,7 @@ sf:
   client:
     clientId: pei_angular
     clientSecret: druidq1w2e3
-    accessTokenUri: http://OAUTH-SERVER:9091/oauth/token
+    accessTokenUri: http://localhost:9091/oauth/token
     scope: write
     username: thiago.antas@druid.com.br
     password: 1234
