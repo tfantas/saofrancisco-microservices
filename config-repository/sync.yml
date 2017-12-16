@@ -87,6 +87,7 @@ spring:
   application:
     name: sync
 
+
   jpa:
     properties:
       hibernate:
@@ -124,13 +125,16 @@ spring:
                 host: 192.168.112.15
                 username: sincronismo
                 password: sincronismo
+                virtual-host: sincronismo
         services_rabbit:
           type: rabbit
           environment:
             spring:
               rabbitmq:
-                host: rabbit-homolog
+                host: 192.168.112.10
       default-binder: services_rabbit
+  jackson:
+    mapper.INFER_PROPERTY_MUTATORS: false
 
 server:
   port: 8092
@@ -139,7 +143,7 @@ sf:
   client:
     clientId: pei_angular
     clientSecret: druidq1w2e3
-    accessTokenUri: http://35.166.252.70:9091/oauth/token
+    accessTokenUri: http://oauth-server:9091/oauth/token
     scope: write
     username: thiago.antas@druid.com.br
     password: 1234
@@ -165,10 +169,3 @@ hystrix:
 feign:
   hystrix:
     enabled: true
-logging:
-  level:
-    org.springframework.cloud.stream: DEBUG
-    org.hibernate.SQL: DEBUG
-    org.hibernate.type.descriptor.sql.BasicBinder: TRACE
-    org.hibernate.type: TRACE
-    br.com.druid.healthinsurance: DEBUG
