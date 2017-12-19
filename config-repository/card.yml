@@ -2,6 +2,14 @@
 spring:
   application:
     name: card
+  mail:
+    host: smtp.gmail.com
+    port: 465
+    username: devopts@druid.com.br
+    password: druid1234 
+    protocol: smtps
+    properties:
+       to: disalles222@hotmail.com
   output:
     ansi:
       enabled: NEVER
@@ -15,7 +23,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   rabbitmq:
-    host: 129.150.65.116		
+    host: 129.150.65.116    
   jpa:
     database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
@@ -51,22 +59,34 @@ hystrix:
   command:
     default:
       execution:
+        timeout:
+          enabled: false
         isolation:
           thread:
-            timeoutInMilliseconds: 30000
+            timeoutInMilliseconds: 120000
 feign:
   hystrix:
-    enabled: true
+    enabled: false
+
+ribbon:
+  ConnectTimeout: 3000
+  ReadTimeout: 30000
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
-
-
 ---
 spring:
   profiles: dsv
   application:
     name: card
+  mail:
+      host: smtp.gmail.com
+      port: 465
+      username: devopts@druid.com.br
+      password: druid1234
+      protocol: smtps
+      properties:
+        to: leo@ed.company
   output:
     ansi:
       enabled: NEVER
