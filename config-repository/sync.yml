@@ -5,9 +5,15 @@ spring:
     output:
       ansi:
         enabled: NEVER
-  #rabbitmq:
-  #  host: 129.150.65.116
-
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: SINCRONISMO
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
   jpa:
     properties:
       hibernate:
@@ -86,7 +92,15 @@ spring:
   profiles: homologSF
   application:
     name: sync
-
+  datasource:
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
+    username: SINCRONISMO
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 5
+      maximum-pool-size: 10
 
   jpa:
     properties:
