@@ -64,6 +64,14 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
+sf:
+  client:
+    clientId: pei_angular
+    clientSecret: druidq1w2e3
+    accessTokenUri: http://35.166.252.70:9091/oauth/token
+    scope: write
+    username: thiago.antas@druid.com.br
+    password: 1234
 
 
 ---
@@ -130,6 +138,14 @@ hystrix:
 feign:
   hystrix:
     enabled: true
+sf:
+  client:
+    clientId: pei_angular
+    clientSecret: druidq1w2e3
+    accessTokenUri: http://35.166.252.70:9091/oauth/token
+    scope: write
+    username: thiago.antas@druid.com.br
+    password: 1234
 
 ---
 spring:
@@ -187,3 +203,13 @@ hystrix:
 feign:
   hystrix:
     enabled: true
+
+sf:
+  client:
+    clientId: pei_angular
+    clientSecret: druidq1w2e3
+    accessTokenUri: http://35.166.252.70:9091/oauth/token
+    scope: write
+    username: thiago.antas@druid.com.br
+    password: 1234
+
