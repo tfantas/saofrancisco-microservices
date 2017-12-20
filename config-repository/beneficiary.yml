@@ -83,7 +83,7 @@ sf:
     password: 1234
 scheduling:
   cancelBeneficiariesDeadline:
-    cron: "*/5 * * * * *"
+    cron: "* */5 * * * *"
 ---
 spring:
   profiles: dsv
@@ -170,7 +170,7 @@ sf:
     password: 1234
 scheduling:
   cancelBeneficiariesDeadline:
-    cron: "*/5 * * * * *"
+    cron: "* */5 * * * *"
 ---
 spring:
   profiles: homologSF
@@ -246,7 +246,7 @@ logging:
     org.springframework.cloud.stream: DEBUG
 scheduling:
   cancelBeneficiariesDeadline:
-    cron: "*/5 * * * * *"
+    cron: "* */5 * * * *"
 ---
 spring:
   profiles: teste_sf
@@ -318,5 +318,5 @@ logging:
     org.springframework.cloud.stream: DEBUG
 scheduling:
   cancelBeneficiariesDeadline:
-    cron: "*/5 * * * * *"
+    cron: "* */5 * * * *"
 
