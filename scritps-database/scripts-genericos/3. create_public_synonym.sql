@@ -7,7 +7,7 @@ BEGIN
     FOR obj IN (SELECT owner, object_name
                   FROM all_objects
                  WHERE owner IN ('EMPRESA', 'CONTRATO', 'FATURAMENTO', 'BENEFICIARIO', 'CONTROLE_ACESSO', 'DOCUMENTO', 
-                                 'ENDERECO', 'MENSAGEM', 'CARTAO')
+                                 'ENDERECO', 'MENSAGEM')
                    AND object_type IN ('TABLE','VIEW','PROCEDURE','FUNCTION','PACKAGE', 'SEQUENCE')
                  ORDER BY owner, object_type, object_name)
     LOOP

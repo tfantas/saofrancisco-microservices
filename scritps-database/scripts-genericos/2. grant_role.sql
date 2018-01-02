@@ -20,7 +20,7 @@ BEGIN
     FOR usr IN (SELECT USERNAME
                   FROM ALL_USERS
                  WHERE USERNAME IN ('EMPRESA', 'CONTRATO', 'FATURAMENTO', 'BENEFICIARIO', 'CONTROLE_ACESSO', 'DOCUMENTO', 
-                                    'ENDERECO', 'MENSAGEM', 'CARTAO', 'CONCENTRADOR_ANS', 'SINCRONISMO', 'IMPORTACAO_VIDA'))
+                                    'ENDERECO', 'MENSAGEM', 'SINCRONISMO', 'IMPORTACAO_VIDA'))
     LOOP
         -- Para cada username
         owner_name := usr.USERNAME;
