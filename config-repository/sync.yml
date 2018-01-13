@@ -1,7 +1,28 @@
 ---
 spring:
-  rabbitmq:
-      host: 129.150.65.116
+  application:
+    name: sync
+    output:
+      ansi:
+        enabled: NEVER
+  datasource:
+    url: jdbc:oracle:thin:@//sf-dsv.chapsiz2x54b.us-west-2.rds.amazonaws.com:1521/ORCL
+    username: SINCRONISMO
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 1
+      maximum-pool-size: 5
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+      javax:
+        persistence:
+          validation:
+            mode: none
 
   cloud:
     stream:
@@ -15,11 +36,16 @@ spring:
           binder: rabbit
           destination: sincronismo.out
           contentType: application/json
+          group: syncService
         worksCompanyAudit:
           binder: rabbit
           destination: company.audit
           contentType: application/json
           group: synch
+
+server:
+  port: 8092
+
 sf:
   client:
     clientId: pei_angular
@@ -32,7 +58,7 @@ sf:
 eureka:
   client:
     serviceUrl:
-      defaultZone: http://35.166.252.70:8761/eureka/
+      defaultZone: http://localhost:8761/eureka/
   datacenter: cloud
   instance:
     statusPageUrlPath: /eureka/info
@@ -46,10 +72,11 @@ hystrix:
       execution:
         isolation:
           thread:
-            timeoutInMilliseconds: 60000
+            timeoutInMilliseconds: 90000
 feign:
   hystrix:
     enabled: true
+
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
@@ -59,3 +86,100 @@ logging:
     br.com.druid.healthinsurance: DEBUG
     #org.springframework.http: TRACE
     #org.apache.http: TRACE
+
+---
+spring:
+  profiles: homologSF
+  application:
+    name: sync
+  datasource:
+    url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
+    username: SINCRONISMO
+    password: druidq1w2e3
+    driver-class-name: oracle.jdbc.OracleDriver
+    hikari:
+      connection-test-query: SELECT 1 FROM DUAL
+      minimum-idle: 5
+      maximum-pool-size: 10
+
+  jpa:
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: false
+      javax:
+        persistence:
+          validation:
+            mode: none
+
+  cloud:
+    stream:
+      bindings:
+        worksSyncIn:
+          binder: sync_rabbit
+          destination: sincronismo.in
+          contentType: application/json
+          group: syncService
+        worksSyncOut:
+          binder: sync_rabbit
+          destination: sincronismo.out
+          contentType: application/json
+          group: syncService
+        worksCompanyAudit:
+          binder: services_rabbit
+          destination: company.audit
+          contentType: application/json
+          group: synch
+      binders:
+        sync_rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.112.15
+                username: sincronismo
+                password: sincronismo
+                virtual-host: sincronismo
+        services_rabbit:
+          type: rabbit
+          environment:
+            spring:
+              rabbitmq:
+                host: 192.168.112.10
+      default-binder: services_rabbit
+  jackson:
+    mapper.INFER_PROPERTY_MUTATORS: false
+
+server:
+  port: 8092
+
+sf:
+  client:
+    clientId: pei_angular
+    clientSecret: druidq1w2e3
+    accessTokenUri: http://localhost:9091/oauth/token
+    scope: write
+    username: thiago.antas@druid.com.br
+    password: 1234
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://service-discovery-homolog:8761/eureka/
+  datacenter: saofrancisco-homolog
+  instance:
+    statusPageUrlPath: /eureka/info
+    healthCheckUrlPath: /eureka/health
+management:
+  contextPath: /eureka
+hystrix:
+  shareSecurityContext: true
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 30000
+feign:
+  hystrix:
+    enabled: true

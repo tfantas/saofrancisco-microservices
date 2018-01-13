@@ -146,7 +146,7 @@ spring:
       host: smtp.gmail.com
       port: 465
       username: devopts@druid.com.br
-      password: Q1w2e3r4!
+      password: druid1234
       protocol: smtps
   datasource:
     url: jdbc:oracle:thin:@//oracle-database-homolog:1521/higiadsv
@@ -215,7 +215,7 @@ spring:
     host: smtp.gmail.com
     port: 465
     username: devopts@druid.com.br
-    password: Q1w2e3r4!
+    password: druid1234
     protocol: smtps
   datasource:
     url: jdbc:oracle:thin:@//10.10.0.70:1521/higiadsv

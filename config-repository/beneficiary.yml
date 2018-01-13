@@ -73,7 +73,17 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
-
+sf:
+  client:
+    clientId: pei_angular
+    clientSecret: druidq1w2e3
+    accessTokenUri: http://35.166.252.70:9091/oauth/token
+    scope: write
+    username: thiago.antas@druid.com.br
+    password: 1234
+scheduling:
+  cancelBeneficiariesDeadline:
+    cron: "* */5 * * * *"
 ---
 spring:
   profiles: dsv
@@ -150,7 +160,17 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
-
+sf:
+  client:
+    clientId: pei_angular
+    clientSecret: druidq1w2e3
+    accessTokenUri: http://35.166.252.70:9091/oauth/token
+    scope: write
+    username: thiago.antas@druid.com.br
+    password: 1234
+scheduling:
+  cancelBeneficiariesDeadline:
+    cron: "* */5 * * * *"
 ---
 spring:
   profiles: homologSF
@@ -224,7 +244,9 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
-
+scheduling:
+  cancelBeneficiariesDeadline:
+    cron: "* */5 * * * *"
 ---
 spring:
   profiles: teste_sf
@@ -294,4 +316,7 @@ feign:
 logging:
   level:
     org.springframework.cloud.stream: DEBUG
+scheduling:
+  cancelBeneficiariesDeadline:
+    cron: "* */5 * * * *"
 
