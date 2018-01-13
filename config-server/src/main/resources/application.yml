@@ -11,4 +11,15 @@ spring:
 server:
   port: 8001
 
+---
+spring:
+    profiles: local
+    name: local-files
+    environment: test
+    cloud:
+        config:
+          server:
+          native:
+            searchLocations: file://${repo.folder}/config-repository
+
 
