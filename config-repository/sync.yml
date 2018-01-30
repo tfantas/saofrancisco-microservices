@@ -98,6 +98,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         show_sql: true
@@ -141,6 +142,7 @@ spring:
       minimum-idle: 1
       maximum-pool-size: 5
   jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         show_sql: true
@@ -207,6 +209,7 @@ spring:
       maximum-pool-size: 10
 
   jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
     properties:
       hibernate:
         show_sql: true
