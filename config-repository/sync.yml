@@ -73,8 +73,8 @@ feign:
 
 logging:
   level:
-    org.springframework: DEBUG
-    org.springframework.cloud.stream: DEBUG
+    org.springframework: INFO
+    org.springframework.cloud.stream: INFO
     org.hibernate.SQL: DEBUG
     org.hibernate.type.descriptor.sql.BasicBinder: INFO
     org.hibernate.type: INFO
